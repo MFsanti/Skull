@@ -1,0 +1,67 @@
+[gd_scene load_steps=9 format=3 uid="uid://sqh6lagva8os"]
+
+[ext_resource type="Script" path="res://mob.gd" id="1_aydjq"]
+[ext_resource type="Texture2D" uid="uid://cmptmjfdb2pxc" path="res://sprites/dodge_the_creeps_2d_assets/art/enemyFlyingAlt_1.png" id="2_u1rqk"]
+[ext_resource type="Texture2D" uid="uid://dg8tvldhsgo7c" path="res://sprites/dodge_the_creeps_2d_assets/art/enemyFlyingAlt_2.png" id="3_ua0au"]
+[ext_resource type="Texture2D" uid="uid://k16ykq2p7rgc" path="res://sprites/dodge_the_creeps_2d_assets/art/enemySwimming_1.png" id="4_vixs2"]
+[ext_resource type="Texture2D" uid="uid://c4fctk3qgrbsk" path="res://sprites/dodge_the_creeps_2d_assets/art/enemySwimming_2.png" id="5_8ppnu"]
+[ext_resource type="Texture2D" uid="uid://7yl2x2mv3k0n" path="res://sprites/dodge_the_creeps_2d_assets/art/enemyWalking_1.png" id="6_mxkew"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ny2k0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_u1rqk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ua0au")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_vixs2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_8ppnu")
+}],
+"loop": true,
+"name": &"swim",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_mxkew")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_8ppnu")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dgmn6"]
+radius = 23.0
+height = 64.0
+
+[node name="MOB" type="RigidBody2D"]
+position = Vector2(1, 0)
+collision_mask = 0
+gravity_scale = 0.0
+script = ExtResource("1_aydjq")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_ny2k0")
+animation = &"walk"
+frame_progress = 0.0208331
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_dgmn6")
+metadata/_edit_group_ = true
