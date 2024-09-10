@@ -8,6 +8,11 @@ signal hit
 
 var axis : Vector2
 
+func start(start_position: Vector2) -> void:
+	position = start_position
+	print("Jugador iniciado en la posición: ", start_position)
+
+
 func _process(delta):
 	motion_ctrl() 
 
