@@ -17,7 +17,7 @@ func _process(delta):
 	motion_ctrl() 
 
 func get_axis() -> Vector2:  
-	axis.x = int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("left"))
+	axis.x = int(Input.is_action_pressed("rigth")) - int(Input.is_action_pressed("left"))
 	axis.y = int(Input.is_action_pressed("up")) - int(Input.is_action_pressed("down"))
 	return axis.normalized()
 	

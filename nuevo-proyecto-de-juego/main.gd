@@ -4,8 +4,14 @@ extends Node
 var score
 
 func Game_Over() -> void:
+	# Detener los temporizadores
 	$scorer_timer.stop()
 	$mob_timer.stop()
+	
+	
+	# Opcionalmente, detener el movimiento del jugador o cambiar la escena a "Game Over"
+	$player.queue_free()  # Elimina al jugador de la escena, simulando que ha perdido
+	print("¡Has perdido!")
 
 func New_Game(): 
 	score = 0 
@@ -26,8 +32,11 @@ func _on_mob_timer_timeout() -> void:
 	direction += randf_range(-PI / 4, PI / 4) 
 	mob.rotation = direction
 	
+	# Asignar la velocidad al mob
 	var velocity = Vector2(randf_range(150.0, 250.0), 0.0).rotated(direction)
-	add_child(mob)
+	mob.linear_velocity = velocity  # Asignar la velocidad para que el mob se mueva
+	
+	add_child(mob)  # Agregar el mob a la escena
 
 func _on_scorer_timer_timeout() -> void:
 	score+=1 
