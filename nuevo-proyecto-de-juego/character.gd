@@ -12,7 +12,6 @@ func start(start_position: Vector2) -> void:
 	position = start_position
 	print("Jugador iniciado en la posición: ", start_position)
 
-
 func _process(delta):
 	motion_ctrl() 
 
@@ -38,3 +37,10 @@ func motion_ctrl() -> void:
 	elif velocity.y != 0:
 		sprite.animation = "up"
 		sprite.flip_v = velocity.y > 0
+
+func _on_body_entered(body: Node) -> void:
+	if body.is_in_group("mob"):  
+		print("El jugador ha sido golpeado por un mob")
+		hide() 
+		hit.emit()  
+		$CollisionShape2D.set_deferred("disabled", true)  
