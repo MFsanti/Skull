@@ -1,20 +1,32 @@
 extends Node
 
 @export var mob_scene: PackedScene
-# Called when the node enters the scene tree for the first time.
+@export var mob_spawn: Node3D  
+@export var player: Node3D 
+
 func _ready() -> void:
-	pass # Replace with function body.
+	pass
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 
-
 func _on_mob_timer_timeout() -> void:
+	if mob_scene == null:
+		return
+
 	var mob = mob_scene.instantiate()
+
+	var player_position = player.position
+	var mob_spawn_position = mob_spawn.position
+
+	if mob.has_method("initialize"):
+		mob.initialize(mob_spawn_position, player_position)
+
+	add_child(mob)
+
 	var mob_spawn_location = get_node("spawn/mob_spawn")
-	mob_spawn_location.progress_ratio = randf()
-	var player_position = $Player.position
-	mob.initialize(mob_spawn_location.position, player_position)
-	add_child(mob) 
+	if mob_spawn_location:
+		mob_spawn_location.progress_ratio = randf()
+
+func _on_player_hit() -> void:
+	$mob_timer.stop()  

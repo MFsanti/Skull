@@ -1,48 +1,62 @@
 extends CharacterBody3D
 
-@export var bounce_impulse = 16 
-
-@export var speed : float = 10 
-
+@export var bounce_impulse = 16
+@export var speed: float = 10
 @export var fall_acceleration = 75
-
-var target_velocity = Vector3.ZERO
-
 @export var jump_impulse = 20
 
+var target_velocity = Vector3.ZERO
 var input_vector = Vector3.ZERO
 
-#func _physics_process(delta: float) -> void: 
-	#if not is_on_floor():
-	#	velocity += get_gravity() * delta
+signal hit
 
 func _ready() -> void:
+	# Aquí puedes realizar inicializaciones si es necesario
 	pass
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
+	# Manejar entrada y movimiento
+	input_vector = Vector3.ZERO
+	
 	if Input.is_action_pressed("ui_right"):
-		position += Vector3.RIGHT*delta*speed
+		input_vector.x += 1
 	if Input.is_action_pressed("ui_left"):
-		position += Vector3.LEFT*delta*speed
+		input_vector.x -= 1
 	if Input.is_action_pressed("ui_up"):
-		position += Vector3.FORWARD*delta*speed
+		input_vector.z -= 1
 	if Input.is_action_pressed("ui_down"):
-		position += Vector3.BACK*delta*speed
+		input_vector.z += 1
 
+	input_vector = input_vector.normalized()
 	target_velocity = input_vector * speed
 
-
-
-	# Asegúrate de que el personaje esté en el suelo para saltar
+	# Movimiento y gravedad
 	if is_on_floor() and Input.is_action_just_pressed("jump"):
 		velocity.y = jump_impulse
-
-	# Aplicar la gravedad
-	if not is_on_floor():
+	else:
 		velocity.y -= fall_acceleration * delta
 
-	# Actualizar la velocidad y el movimiento
-		velocity.x = target_velocity.x
-		velocity.z = target_velocity.z
+	velocity.x = target_velocity.x
+	velocity.z = target_velocity.z
 
 	move_and_slide()
+
+	# Manejo de colisiones
+	for index in range(get_slide_collision_count()):
+		var collision = get_slide_collision(index)
+		var collider = collision.get_collider()
+		if collider and collider.is_in_group("mob"):
+			if Vector3.UP.dot(collision.get_normal()) > 0.1:
+				var mob = collider
+				mob.squash()
+				velocity.y = bounce_impulse
+				break  # Solo manejar la primera colisión
+
+func die():
+	hit.emit()
+	queue_free()
+
+# Asegúrate de conectar esta función a la señal de detección del área o colisiones
+func _on_mobdetector_body_entered(body: Node3D) -> void:
+	if body.is_in_group("mob"):
+		die()

@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://m4r4fohlqmkf"]
+[gd_scene load_steps=8 format=3 uid="uid://m4r4fohlqmkf"]
 
 [ext_resource type="PackedScene" uid="uid://dgcjkeumvu2nc" path="res://player.tscn" id="1_htkrw"]
 [ext_resource type="Script" path="res://main.gd" id="1_jwtru"]
-[ext_resource type="PackedScene" uid="uid://byrqrgtqat0y2" path="res://mob.tscn" id="2_ig13a"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_c57qx"]
 size = Vector3(60, 2, 60)
@@ -25,7 +24,6 @@ point_count = 5
 
 [node name="Main" type="Node"]
 script = ExtResource("1_jwtru")
-mob_scene = ExtResource("2_ig13a")
 
 [node name="Ground" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
@@ -84,4 +82,5 @@ transform = Transform3D(0.00694443, 0, -0.999975, 0, 1, 0, 0.999975, 0, 0.006944
 wait_time = 0.5
 autostart = true
 
+[connection signal="hit" from="Player" to="." method="_on_player_hit"]
 [connection signal="timeout" from="mob_timer" to="." method="_on_mob_timer_timeout"]
