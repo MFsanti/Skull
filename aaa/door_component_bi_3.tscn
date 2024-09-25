@@ -1,0 +1,65 @@
+[gd_scene load_steps=6 format=3 uid="uid://712xpx570prr"]
+
+[ext_resource type="PackedScene" uid="uid://jkjrf302uf5a" path="res://Blender/dugjmokoercw-Room-Door/Room-Door/Door_Component_BI3.fbx" id="1_1g5p7"]
+
+[sub_resource type="Animation" id="Animation_dougs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Plane_002/Plane_001:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -1.5708)]
+}
+
+[sub_resource type="Animation" id="Animation_4j1ed"]
+resource_name = "close"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Plane_002/Plane_001:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -1.5708), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_hx5v3"]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Plane_002/Plane_001:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, -1.5708)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_61eun"]
+_data = {
+"RESET": SubResource("Animation_dougs"),
+"close": SubResource("Animation_4j1ed"),
+"open": SubResource("Animation_hx5v3")
+}
+
+[node name="Door_Component_BI3" instance=ExtResource("1_1g5p7")]
+
+[node name="Plane_001" parent="Plane_002" index="0"]
+transform = Transform3D(-3.61999e-06, 1, 0, -1, -3.61999e-06, 0, 0, 0, 1, -0.00435135, -0.00101397, 0.00248962)
+
+[node name="AnimationPlayer" parent="." index="1"]
+libraries = {
+"": SubResource("AnimationLibrary_61eun")
+}

@@ -41,10 +41,20 @@ func _process(delta: float) -> void:
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
-	if input.is_action_just_pressed("usar"):
-		process_raycast() 
+	
+
+func process_raycast():
+	if raycast.is_colliding(): 
+		var collider = raycast.get_collider()
+		if collider.has_method("action_use"):
+			collider.action_use()  # Call the method on the collider
+			print(collider)
 
 func _input(event):
 	if event is InputEventMouseMotion: 
 		head.rotate_y(-event.relative.x * SENSITIVITY)
-		camera.rotate_x(-event.relative.y * SENSITIVITY)
+		camera.rotate_x(-event.relative.y * SENSITIVITY) 
+	
+	if event.is_action_pressed("usar"):
+		process_raycast() 
+		print("process_raycast")
