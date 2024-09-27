@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://l0fepvnst6kf"
+path="res://.godot/imported/10236_Master_Bed_King_Size_v1_L3b.obj-397cc8ebadd6007638ebda5cc574c742.mesh"
+
+[deps]
+
+files=["res://.godot/imported/10236_Master_Bed_King_Size_v1_L3b.obj-397cc8ebadd6007638ebda5cc574c742.mesh"]
+
+source_file="res://Blender/cama 2 plazas/10236_Master_Bed_King_Size_v1_L3b.obj"
+dest_files=["res://.godot/imported/10236_Master_Bed_King_Size_v1_L3b.obj-397cc8ebadd6007638ebda5cc574c742.mesh", "res://.godot/imported/10236_Master_Bed_King_Size_v1_L3b.obj-397cc8ebadd6007638ebda5cc574c742.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

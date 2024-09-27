@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ksty6q06tock"
+path="res://.godot/imported/Door_Component_BI3.obj-3bcb43fbc9c224ea38f7270683c8f9d3.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Door_Component_BI3.obj-3bcb43fbc9c224ea38f7270683c8f9d3.mesh"]
+
+source_file="res://Blender/puerta/Room-Door/Door_Component_BI3.obj"
+dest_files=["res://.godot/imported/Door_Component_BI3.obj-3bcb43fbc9c224ea38f7270683c8f9d3.mesh", "res://.godot/imported/Door_Component_BI3.obj-3bcb43fbc9c224ea38f7270683c8f9d3.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
