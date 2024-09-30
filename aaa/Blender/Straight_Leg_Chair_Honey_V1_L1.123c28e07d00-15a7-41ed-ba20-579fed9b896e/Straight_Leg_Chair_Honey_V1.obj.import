@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c16ckwtt3gcxy"
+path="res://.godot/imported/Straight_Leg_Chair_Honey_V1.obj-4563b9695b4926c9f61c131d01a30a41.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Straight_Leg_Chair_Honey_V1.obj-4563b9695b4926c9f61c131d01a30a41.mesh"]
+
+source_file="res://Blender/Straight_Leg_Chair_Honey_V1_L1.123c28e07d00-15a7-41ed-ba20-579fed9b896e/Straight_Leg_Chair_Honey_V1.obj"
+dest_files=["res://.godot/imported/Straight_Leg_Chair_Honey_V1.obj-4563b9695b4926c9f61c131d01a30a41.mesh", "res://.godot/imported/Straight_Leg_Chair_Honey_V1.obj-4563b9695b4926c9f61c131d01a30a41.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
