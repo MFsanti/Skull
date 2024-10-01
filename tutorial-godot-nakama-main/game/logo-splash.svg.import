@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmut0h4n8n8el"
-path="res://.godot/imported/Textura Cesped.jpeg-60facd00c882930362995a9d964b2c57.ctex"
+uid="uid://c8u2o8ort3np"
+path="res://.godot/imported/logo-splash.svg-ecb892bab7436a4f0be6691d3586423d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://texturas/Textura Cesped.jpeg"
-dest_files=["res://.godot/imported/Textura Cesped.jpeg-60facd00c882930362995a9d964b2c57.ctex"]
+source_file="res://logo-splash.svg"
+dest_files=["res://.godot/imported/logo-splash.svg-ecb892bab7436a4f0be6691d3586423d.ctex"]
 
 [params]
 
@@ -32,3 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

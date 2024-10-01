@@ -1,0 +1,77 @@
+[gd_scene load_steps=12 format=3 uid="uid://bybjgnhgqlwsb"]
+
+[ext_resource type="PackedScene" uid="uid://bfmg53h24rvxw" path="res://assets/autitos/race.glb" id="1_cd1ft"]
+[ext_resource type="Script" path="res://player/scripts/behaviors.gd" id="2_dfkni"]
+[ext_resource type="Script" path="res://player/scripts/gravity_behavior.gd" id="3_6dj4v"]
+[ext_resource type="Script" path="res://player/scripts/player_controller_behavior.gd" id="3_xa4jv"]
+[ext_resource type="PackedScene" uid="uid://686gtfjpbvep" path="res://assets/autitos/box.glb" id="5_pp7ru"]
+[ext_resource type="Script" path="res://player/scripts/friction_behavior.gd" id="5_vh28d"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6jco5"]
+
+[sub_resource type="Sky" id="Sky_ewekr"]
+sky_material = SubResource("ProceduralSkyMaterial_6jco5")
+
+[sub_resource type="Environment" id="Environment_sq5l7"]
+background_mode = 2
+sky = SubResource("Sky_ewekr")
+ambient_light_source = 2
+ambient_light_color = Color(0.761038, 0.713044, 0.653596, 1)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_5o165"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6k3eh"]
+size = Vector3(1.2, 0.6, 2.5)
+
+[node name="World" type="Node3D"]
+
+[node name="Setup" type="Node3D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="MainCam" type="Camera3D" parent="Setup"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 20, 5)
+current = true
+
+[node name="Sun" type="DirectionalLight3D" parent="Setup"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 10, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Setup"]
+environment = SubResource("Environment_sq5l7")
+
+[node name="Level" type="Node3D" parent="."]
+
+[node name="Floor" type="StaticBody3D" parent="Level"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Floor"]
+shape = SubResource("WorldBoundaryShape3D_5o165")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Level/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+size = Vector3(100, 1, 100)
+
+[node name="Player" type="CharacterBody3D" parent="Level"]
+
+[node name="race" parent="Level/Player" instance=ExtResource("1_cd1ft")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+shape = SubResource("BoxShape3D_6k3eh")
+
+[node name="Behaviors" type="Node" parent="Level/Player"]
+script = ExtResource("2_dfkni")
+
+[node name="Gravity" type="Node" parent="Level/Player/Behaviors"]
+script = ExtResource("3_6dj4v")
+
+[node name="PlayerController" type="Node" parent="Level/Player/Behaviors"]
+script = ExtResource("3_xa4jv")
+
+[node name="Friction" type="Node" parent="Level/Player/Behaviors"]
+script = ExtResource("5_vh28d")
+
+[node name="PlayerCam" type="Camera3D" parent="Level/Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.929804, 2.4413)
+
+[node name="box2" parent="Level" instance=ExtResource("5_pp7ru")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.55289, -4.76837e-07, -11.2224)

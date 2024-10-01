@@ -1,0 +1,143 @@
+[gd_scene load_steps=3 format=3 uid="uid://dor85g8i1g1ox"]
+
+[ext_resource type="Script" path="res://modules/server_connection/ui/login/login_form.gd" id="1_5wdd4"]
+[ext_resource type="PackedScene" uid="uid://ds7td0rack5ox" path="res://modules/server_connection/ui/utils/server_message.tscn" id="1_8v6ql"]
+
+[node name="LoginForm" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5wdd4")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -244.0
+offset_top = -100.0
+offset_right = 244.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Form" type="VBoxContainer" parent="PanelContainer"]
+custom_minimum_size = Vector2(400, 200)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+alignment = 1
+
+[node name="Spacer" type="Control" parent="PanelContainer/Form"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="LoginInputs" type="GridContainer" parent="PanelContainer/Form"]
+layout_mode = 2
+columns = 2
+
+[node name="UserLabel" type="Label" parent="PanelContainer/Form/LoginInputs"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Usuario"
+
+[node name="UserInput" type="LineEdit" parent="PanelContainer/Form/LoginInputs"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "su usuario..."
+
+[node name="PasswordLabel" type="Label" parent="PanelContainer/Form/LoginInputs"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Contraseña"
+
+[node name="PasswordInput" type="LineEdit" parent="PanelContainer/Form/LoginInputs"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "su contraseña..."
+secret = true
+
+[node name="RegisterInputs" type="GridContainer" parent="PanelContainer/Form"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+columns = 2
+
+[node name="EmailLabel" type="Label" parent="PanelContainer/Form/RegisterInputs"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Email"
+
+[node name="EmailInput" type="LineEdit" parent="PanelContainer/Form/RegisterInputs"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "su email..."
+
+[node name="NameLabel" type="Label" parent="PanelContainer/Form/RegisterInputs"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Nombre"
+
+[node name="NameInput" type="LineEdit" parent="PanelContainer/Form/RegisterInputs"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "su Nombre..."
+
+[node name="LoginButtons" type="HBoxContainer" parent="PanelContainer/Form"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="LoginButton" type="Button" parent="PanelContainer/Form/LoginButtons"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Conectarse"
+
+[node name="RegisterButton" type="Button" parent="PanelContainer/Form/LoginButtons"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Registrarse"
+
+[node name="RegisterButtons" type="HBoxContainer" parent="PanelContainer/Form"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="CancelarButton" type="Button" parent="PanelContainer/Form/RegisterButtons"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Cancelar"
+
+[node name="ConfirmarButton" type="Button" parent="PanelContainer/Form/RegisterButtons"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Confirmar
+"
+
+[node name="ServerMessage" parent="PanelContainer/Form" instance=ExtResource("1_8v6ql")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Spacer2" type="Control" parent="PanelContainer/Form"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[connection signal="pressed" from="PanelContainer/Form/LoginButtons/LoginButton" to="." method="_on_login_button_pressed"]
+[connection signal="pressed" from="PanelContainer/Form/LoginButtons/RegisterButton" to="." method="_on_register_button_pressed"]
+[connection signal="pressed" from="PanelContainer/Form/RegisterButtons/CancelarButton" to="." method="_on_cancelar_register"]
+[connection signal="pressed" from="PanelContainer/Form/RegisterButtons/ConfirmarButton" to="." method="_on_confirmar_pressed"]

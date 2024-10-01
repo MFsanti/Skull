@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ds7td0rack5ox"]
+
+[ext_resource type="Script" path="res://modules/server_connection/ui/utils/server_message.gd" id="1_xk4pg"]
+
+[node name="ServerMessage" type="Label"]
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+script = ExtResource("1_xk4pg")
