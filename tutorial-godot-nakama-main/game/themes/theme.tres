@@ -1,0 +1,19 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://cfrvcksneem10"]
+
+[ext_resource type="Texture2D" uid="uid://bgqefx4qhb3cg" path="res://kenney_ui-pack-pixel-adventure/Tiles/Large tiles/Thick outline/tile_0031.png" id="1_r47c6"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b6t68"]
+texture = ExtResource("1_r47c6")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+
+[resource]
+Button/colors/font_color = Color(0.594336, 0.58547, 0.868764, 1)
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/colors/font_shadow_color = Color(0.301961, 0.301961, 0.301961, 1)
+Label/constants/shadow_offset_x = 1
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_b6t68")
+boton_principal/base_type = &"Button"
+boton_principal/colors/font_color = Color(0.30058, 0.675038, 0, 1)

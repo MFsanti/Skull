@@ -25,6 +25,10 @@ config/icon="res://icon.svg"
 Nakama="*res://addons/com.heroiclabs.nakama/Nakama.gd"
 ServerConnection="*res://modules/server_connection/server_connection.gd"
 
+[gui]
+
+theme/custom="res://themes/theme.tres"
+
 [importer_defaults]
 
 texture={
