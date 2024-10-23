@@ -46,9 +46,14 @@ func _ready() -> void:
 func process_raycast():
 	if raycast.is_colliding(): 
 		var collider = raycast.get_collider()
+		print("Colisiona con: ", collider.name)  # Para verificar con qué colisiona
 		if collider.has_method("action_use"):
-			collider.action_use()  # Call the method on the collider
-			print(collider)
+			collider.action_use()
+		else:
+			print("El objeto no tiene el método action_use")
+	else:
+		print("No colisiona con nada")
+
 
 func _input(event):
 	if event is InputEventMouseMotion: 
