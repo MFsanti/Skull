@@ -11,6 +11,8 @@ const SENSITIVITY = 0.005
 @onready var camera = $Head/Camera3D
 @onready var raycast = $Head/Camera3D/RayCast3D
 
+@onready var hint_icon = %ActionHintIcon
+
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		# Aplica la gravedad
@@ -23,6 +25,9 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 
 func _process(delta: float) -> void:
+	
+	process_raycast_cool()
+	
 	var speed = WALK_SPEED
 	if Input.is_action_pressed("correr"):
 		speed = RUN_SPEED
@@ -43,6 +48,22 @@ func _ready() -> void:
 	
 	
 
+func process_raycast_cool():
+	hint_icon.hide()
+	if raycast.is_colliding(): 
+		var collider = raycast.get_collider()
+		print("Colisiona con: ", collider.name)  # Para verificar con qué colisiona
+		if collider.has_method("action_use"):
+			if Input.is_action_just_pressed("usar"):
+				collider.action_use()
+			else:
+				hint_icon.show()
+				print("MOstrar icono de accion")
+		else:
+			print("El objeto no tiene el método action_use")
+	else:
+		print("No colisiona con nada")
+
 func process_raycast():
 	if raycast.is_colliding(): 
 		var collider = raycast.get_collider()
@@ -60,6 +81,8 @@ func _input(event):
 		head.rotate_y(-event.relative.x * SENSITIVITY)
 		camera.rotate_x(-event.relative.y * SENSITIVITY) 
 	
-	if event.is_action_pressed("usar"):
-		process_raycast() 
-		print("process_raycast")
+	#if event.is_action_pressed("usar"):
+		#process_raycast() 
+		#print("process_raycast")
+
+	
