@@ -1,6 +1,5 @@
-[gd_scene load_steps=244 format=4 uid="uid://cbc5f52ccsku1"]
+[gd_scene load_steps=248 format=4 uid="uid://cbc5f52ccsku1"]
 
-[ext_resource type="Texture2D" uid="uid://yva5ul8h40af" path="res://UI/hexanys-1-bit-ui-panels-1.1.0/Hexany's 1-bit UI Panels/Panels/star_fleet.png" id="2_dym1n"]
 [ext_resource type="Script" path="res://codes/Player.gd" id="2_uu88t"]
 [ext_resource type="Texture2D" uid="uid://bwqbpvsjhtg0i" path="res://texturas/Grass001_1K-JPG/Grass001_1K-JPG_Color.jpg" id="3_f552i"]
 [ext_resource type="Texture2D" uid="uid://dgbkwoioxj8u8" path="res://texturas/Grass001_1K-JPG/Grass001_1K-JPG_AmbientOcclusion.jpg" id="3_uoufc"]
@@ -46,18 +45,31 @@
 [ext_resource type="Script" path="res://codes/Switch.gd" id="44_q600y"]
 [ext_resource type="Script" path="res://codes/Pasillo_Hall.gd" id="45_d0nvh"]
 [ext_resource type="PackedScene" uid="uid://kil5xf3jbood" path="res://escenas/ui.tscn" id="45_ww167"]
+[ext_resource type="Script" path="res://escenas/objetivos.gd" id="47_atv5i"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5wlba"]
-sky_top_color = Color(0, 0, 0, 1)
-sky_horizon_color = Color(0.0588235, 0, 0.368627, 1)
-sun_angle_max = 0.0
+[sub_resource type="Gradient" id="Gradient_6ykiw"]
 
-[sub_resource type="Sky" id="Sky_12j0s"]
-sky_material = SubResource("ProceduralSkyMaterial_5wlba")
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_p540k"]
+noise_type = 0
+seed = 1
 
-[sub_resource type="Environment" id="Environment_wt87u"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_8kj0q"]
+in_3d_space = true
+seamless = true
+color_ramp = SubResource("Gradient_6ykiw")
+noise = SubResource("FastNoiseLite_p540k")
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qrlt4"]
+sky_top_color = Color(0.286205, 0.45255, 0.68488, 1)
+sky_curve = 1e-05
+sky_cover = SubResource("NoiseTexture2D_8kj0q")
+
+[sub_resource type="Sky" id="Sky_rck73"]
+sky_material = SubResource("ProceduralSkyMaterial_qrlt4")
+
+[sub_resource type="Environment" id="Environment_x37oi"]
 background_mode = 2
-sky = SubResource("Sky_12j0s")
+sky = SubResource("Sky_rck73")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_oer8w"]
 radius = 0.0592905
@@ -65,12 +77,9 @@ height = 0.359491
 
 [sub_resource type="Theme" id="Theme_gks23"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ywkpo"]
-texture = ExtResource("2_dym1n")
-texture_margin_left = 15.0
-texture_margin_top = 15.0
-texture_margin_right = 15.0
-texture_margin_bottom = 15.0
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2vual"]
+bg_color = Color(0, 0, 0, 0.5)
+expand_margin_left = 20.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_08l2f"]
 size = Vector3(50, 1, 50)
@@ -2332,12 +2341,15 @@ shadow_mesh = SubResource("ArrayMesh_ffcg2")
 [sub_resource type="BoxShape3D" id="BoxShape3D_55kvl"]
 size = Vector3(6.18494, 5.46136, 2.56689)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_8cx70"]
+size = Vector3(13.8285, 6.08545, 15.1521)
+
 [node name="mapa" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.244979, -1.49052, 0.857208)
 metadata/_edit_group_ = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_wt87u")
+environment = SubResource("Environment_x37oi")
 
 [node name="Node3D" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.69826, 2.08251, 9.41342)
@@ -2378,18 +2390,18 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 74.0
 offset_top = 26.0
-offset_right = 202.0
+offset_right = 177.0
 offset_bottom = 90.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 theme = SubResource("Theme_gks23")
-theme_override_styles/panel = SubResource("StyleBoxTexture_ywkpo")
+theme_override_styles/panel = SubResource("StyleBoxFlat_2vual")
 metadata/_edit_group_ = true
 
 [node name="Label" type="Label" parent="Node3D/Head/Camera3D/RayCast3D/ActionHintIcon"]
 layout_mode = 2
-text = "Presiona E Para Usar"
+text = "E Para Usar"
 
 [node name="suelo" type="StaticBody3D" parent="."]
 metadata/_edit_group_ = true
@@ -3822,7 +3834,18 @@ script = ExtResource("45_d0nvh")
 transform = Transform3D(1, 0, -4.26326e-14, 0, 1, 0, -2.4869e-14, 0, 1, -0.542694, -0.081192, 0.783386)
 shape = SubResource("BoxShape3D_55kvl")
 
+[node name="Area3D" type="Area3D" parent="casa"]
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="casa/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.7887, 3.05611, -5.36965)
+shape = SubResource("BoxShape3D_8cx70")
+metadata/_edit_group_ = true
+
 [node name="UI" parent="." instance=ExtResource("45_ww167")]
+
+[node name="objetivos" type="Node" parent="."]
+script = ExtResource("47_atv5i")
 
 [connection signal="animation_finished" from="casa/puertas/Puerta Hall/StaticBody3D/AnimationPlayer" to="casa/puertas/Puerta Hall/StaticBody3D" method="_on_animation_player_animation_finished"]
 [connection signal="animation_finished" from="casa/puertas/Puerta Lavadero/StaticBody3D/AnimationPlayer" to="casa/puertas/Puerta Lavadero/StaticBody3D" method="_on_animation_player_animation_finished"]

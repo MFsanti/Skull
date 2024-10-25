@@ -1,7 +1,6 @@
 extends CharacterBody3D
 
-const WALK_SPEED = 1
-const RUN_SPEED = 2
+const WALK_SPEED = 0.7
 const JUMP_VELOCITY = 3  # Ajusta esta constante
 const GRAVITY = -9.8  # Gravedad más realista
 const SLOW_DOWN = 0.5  # Velocidad de descenso
@@ -21,16 +20,11 @@ func _physics_process(delta: float) -> void:
 		# Reinicia la velocidad en Y al tocar el suelo
 		velocity.y = 0
 
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-
 func _process(delta: float) -> void:
 	
 	process_raycast_cool()
 	
 	var speed = WALK_SPEED
-	if Input.is_action_pressed("correr"):
-		speed = RUN_SPEED
 
 	if Input.is_action_pressed("right"):
 		position += head.transform.basis.x * delta * speed
