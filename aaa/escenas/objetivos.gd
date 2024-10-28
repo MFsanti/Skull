@@ -8,7 +8,7 @@ var panel_container: PanelContainer
 # Lista de objetivos en orden
 var objetivos = [
 	"Dirígete a tu casa",
-	"Prepara tu comida",
+	"Busca a tu Familia",
 	"Revisa las ventanas",
 	# Añade más objetivos aquí
 ]

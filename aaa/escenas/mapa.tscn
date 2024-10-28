@@ -1,5 +1,6 @@
-[gd_scene load_steps=248 format=4 uid="uid://cbc5f52ccsku1"]
+[gd_scene load_steps=250 format=4 uid="uid://cbc5f52ccsku1"]
 
+[ext_resource type="PackedScene" uid="uid://7k67fd1gmhju" path="res://escenas/ui_notas.tscn" id="2_f6wc0"]
 [ext_resource type="Script" path="res://codes/Player.gd" id="2_uu88t"]
 [ext_resource type="Texture2D" uid="uid://bwqbpvsjhtg0i" path="res://texturas/Grass001_1K-JPG/Grass001_1K-JPG_Color.jpg" id="3_f552i"]
 [ext_resource type="Texture2D" uid="uid://dgbkwoioxj8u8" path="res://texturas/Grass001_1K-JPG/Grass001_1K-JPG_AmbientOcclusion.jpg" id="3_uoufc"]
@@ -44,7 +45,7 @@
 [ext_resource type="Texture2D" uid="uid://df3fn10ktnqlt" path="res://texturas/PaintedPlaster017_1K-JPG/PaintedPlaster017_1K-JPG_NormalGL.jpg" id="34_xlrdh"]
 [ext_resource type="Script" path="res://codes/Switch.gd" id="44_q600y"]
 [ext_resource type="Script" path="res://codes/Pasillo_Hall.gd" id="45_d0nvh"]
-[ext_resource type="PackedScene" uid="uid://kil5xf3jbood" path="res://escenas/ui.tscn" id="45_ww167"]
+[ext_resource type="Script" path="res://escenas/notas.gd" id="46_r4bcw"]
 [ext_resource type="Script" path="res://escenas/objetivos.gd" id="47_atv5i"]
 
 [sub_resource type="Gradient" id="Gradient_6ykiw"]
@@ -60,9 +61,12 @@ color_ramp = SubResource("Gradient_6ykiw")
 noise = SubResource("FastNoiseLite_p540k")
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qrlt4"]
-sky_top_color = Color(0.286205, 0.45255, 0.68488, 1)
+sky_top_color = Color(0.058709, 0.123349, 0.21329, 1)
 sky_curve = 1e-05
+sky_energy_multiplier = 0.5
 sky_cover = SubResource("NoiseTexture2D_8kj0q")
+sky_cover_modulate = Color(0.340339, 0.340339, 0.340339, 1)
+ground_horizon_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Sky" id="Sky_rck73"]
 sky_material = SubResource("ProceduralSkyMaterial_qrlt4")
@@ -70,6 +74,7 @@ sky_material = SubResource("ProceduralSkyMaterial_qrlt4")
 [sub_resource type="Environment" id="Environment_x37oi"]
 background_mode = 2
 sky = SubResource("Sky_rck73")
+tonemap_mode = 3
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_oer8w"]
 radius = 0.0592905
@@ -976,7 +981,7 @@ size = Vector3(4.26575, 7.02781, 0.341288)
 size = Vector3(0.415947, 1.98828, 3.49904)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ylain"]
-size = Vector3(0.354416, 2.50768, 5.97656)
+size = Vector3(0.354416, 2.50768, 6.10266)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yvp30"]
 size = Vector3(0.343628, 4.83752, 10.0405)
@@ -2344,6 +2349,8 @@ size = Vector3(6.18494, 5.46136, 2.56689)
 [sub_resource type="BoxShape3D" id="BoxShape3D_8cx70"]
 size = Vector3(13.8285, 6.08545, 15.1521)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_0eb2u"]
+
 [node name="mapa" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.244979, -1.49052, 0.857208)
 metadata/_edit_group_ = true
@@ -3329,7 +3336,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.235023, 0.94542, -6.23532)
 shape = SubResource("BoxShape3D_whvq7")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="casa/colisiones/Comedor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.106556, 1.20552, -13.114)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.106556, 1.20552, -13.0509)
 shape = SubResource("BoxShape3D_ylain")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="casa/colisiones/Comedor"]
@@ -3842,10 +3849,25 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.7887, 3.05611, -5.36965)
 shape = SubResource("BoxShape3D_8cx70")
 metadata/_edit_group_ = true
 
-[node name="UI" parent="." instance=ExtResource("45_ww167")]
-
 [node name="objetivos" type="Node" parent="."]
 script = ExtResource("47_atv5i")
+
+[node name="notas" type="Node3D" parent="."]
+
+[node name="ReadableNote" type="StaticBody3D" parent="notas"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.491717, 1.07888, 7.57194)
+script = ExtResource("46_r4bcw")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="notas/ReadableNote"]
+shape = SubResource("BoxShape3D_0eb2u")
+metadata/_edit_group_ = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="notas/ReadableNote/CollisionShape3D"]
+metadata/_edit_group_ = true
+
+[node name="Control" parent="notas/ReadableNote" instance=ExtResource("2_f6wc0")]
+script = null
 
 [connection signal="animation_finished" from="casa/puertas/Puerta Hall/StaticBody3D/AnimationPlayer" to="casa/puertas/Puerta Hall/StaticBody3D" method="_on_animation_player_animation_finished"]
 [connection signal="animation_finished" from="casa/puertas/Puerta Lavadero/StaticBody3D/AnimationPlayer" to="casa/puertas/Puerta Lavadero/StaticBody3D" method="_on_animation_player_animation_finished"]
