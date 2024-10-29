@@ -1,6 +1,7 @@
-[gd_scene load_steps=250 format=4 uid="uid://cbc5f52ccsku1"]
+[gd_scene load_steps=252 format=4 uid="uid://cbc5f52ccsku1"]
 
 [ext_resource type="PackedScene" uid="uid://7k67fd1gmhju" path="res://escenas/ui_notas.tscn" id="2_f6wc0"]
+[ext_resource type="Texture2D" uid="uid://cvry63nojvgsx" path="res://texturas/kenney_crosshair-pack/PNG/White/crosshair001.png" id="2_johet"]
 [ext_resource type="Script" path="res://codes/Player.gd" id="2_uu88t"]
 [ext_resource type="Texture2D" uid="uid://bwqbpvsjhtg0i" path="res://texturas/Grass001_1K-JPG/Grass001_1K-JPG_Color.jpg" id="3_f552i"]
 [ext_resource type="Texture2D" uid="uid://dgbkwoioxj8u8" path="res://texturas/Grass001_1K-JPG/Grass001_1K-JPG_AmbientOcclusion.jpg" id="3_uoufc"]
@@ -85,6 +86,9 @@ height = 0.359491
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2vual"]
 bg_color = Color(0, 0, 0, 0.5)
 expand_margin_left = 20.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h81gw"]
+texture = ExtResource("2_johet")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_08l2f"]
 size = Vector3(50, 1, 50)
@@ -2349,7 +2353,8 @@ size = Vector3(6.18494, 5.46136, 2.56689)
 [sub_resource type="BoxShape3D" id="BoxShape3D_8cx70"]
 size = Vector3(13.8285, 6.08545, 15.1521)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_0eb2u"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_u58m7"]
+size = Vector3(0.0742798, 0.0544434, 0.10614)
 
 [node name="mapa" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.244979, -1.49052, 0.857208)
@@ -2409,6 +2414,20 @@ metadata/_edit_group_ = true
 [node name="Label" type="Label" parent="Node3D/Head/Camera3D/RayCast3D/ActionHintIcon"]
 layout_mode = 2
 text = "E Para Usar"
+
+[node name="PanelContainer" type="PanelContainer" parent="Node3D/Head/Camera3D/RayCast3D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_h81gw")
 
 [node name="suelo" type="StaticBody3D" parent="."]
 metadata/_edit_group_ = true
@@ -3855,19 +3874,18 @@ script = ExtResource("47_atv5i")
 [node name="notas" type="Node3D" parent="."]
 
 [node name="ReadableNote" type="StaticBody3D" parent="notas"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.491717, 1.07888, 7.57194)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.31032, 2.20835, 1.96078)
 script = ExtResource("46_r4bcw")
-metadata/_edit_group_ = true
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="notas/ReadableNote"]
-shape = SubResource("BoxShape3D_0eb2u")
-metadata/_edit_group_ = true
-
-[node name="CSGBox3D" type="CSGBox3D" parent="notas/ReadableNote/CollisionShape3D"]
-metadata/_edit_group_ = true
 
 [node name="Control" parent="notas/ReadableNote" instance=ExtResource("2_f6wc0")]
-script = null
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="notas/ReadableNote"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.233776, -0.738714, -0.0545259)
+shape = SubResource("BoxShape3D_u58m7")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="notas/ReadableNote/CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00524092, 0, -0.0119982)
+size = Vector3(0.0603027, 0.01, 0.123596)
 
 [connection signal="animation_finished" from="casa/puertas/Puerta Hall/StaticBody3D/AnimationPlayer" to="casa/puertas/Puerta Hall/StaticBody3D" method="_on_animation_player_animation_finished"]
 [connection signal="animation_finished" from="casa/puertas/Puerta Lavadero/StaticBody3D/AnimationPlayer" to="casa/puertas/Puerta Lavadero/StaticBody3D" method="_on_animation_player_animation_finished"]

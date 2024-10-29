@@ -9,7 +9,7 @@ var panel_container: PanelContainer
 var objetivos = [
 	"Dirígete a tu casa",
 	"Busca a tu Familia",
-	"Revisa las ventanas",
+	"Llama a tu Esposa",
 	# Añade más objetivos aquí
 ]
 
@@ -89,7 +89,10 @@ func verificar_objetivo():
 			if esta_en_casa():
 				siguiente_objetivo()
 		1:  # Preparar comida
-			if comida_preparada():
+			if vio_la_nota_():
+				siguiente_objetivo()
+		3:  # Llamar a tu esposa
+			
 				siguiente_objetivo()
 		# Añade más casos según necesites
 
@@ -99,10 +102,18 @@ func esta_en_casa() -> bool:
 	var casa_area = ($"../casa/Area3D")
 	return casa_area.overlaps_body(player)
 	return false
+	
+func vio_la_nota_():
+	if Global.leida:
+		return true
 
-func comida_preparada() -> bool:
+#func comida_preparada() -> bool:
+	#var notas = $"../notas/ReadableNote"
+	
 	# Implementa tu lógica aquí
-	return false
+	#return false
+func Llamar():
+	pass
 
 func _process(_delta):
 	verificar_objetivo()

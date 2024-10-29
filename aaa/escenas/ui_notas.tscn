@@ -1,11 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://7k67fd1gmhju"]
-
-[sub_resource type="GDScript" id="GDScript_w6car"]
-script/source = "extends Control
-"
+[gd_scene load_steps=2 format=3 uid="uid://7k67fd1gmhju"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w3rij"]
-bg_color = Color(1, 0.0157632, 0.862522, 1)
+bg_color = Color(0, 0, 0, 0.5)
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -14,7 +10,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = SubResource("GDScript_w6car")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -23,9 +18,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -200.0
+offset_left = -368.0
 offset_top = -150.0
-offset_right = 200.0
+offset_right = 368.0
 offset_bottom = 150.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -40,8 +35,8 @@ layout_mode = 2
 
 [node name="TitleLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "esto es un titulo de nota"
+text = "Esto es un Titulo de la Nota"
 
 [node name="ContentLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "este es el contenido de la nota :p"
+text = "Este es el contenido de la nota :p. wacho juro que l0o vi corriendo y quiero que corra de nuevoo"
