@@ -9,7 +9,8 @@ var panel_container: PanelContainer
 var objetivos = [
 	"Dirígete a tu casa",
 	"Busca a tu Familia",
-	"Llama a tu Esposa",
+	"Prepara la comida",
+	"xd"
 	# Añade más objetivos aquí
 ]
 
@@ -88,12 +89,14 @@ func verificar_objetivo():
 		0:  # Llegar a casa
 			if esta_en_casa():
 				siguiente_objetivo()
-		1:  # Preparar comida
+		1:  # Buscar Nota
 			if vio_la_nota_():
 				siguiente_objetivo()
-		3:  # Llamar a tu esposa
-			
+		3:  # Hacer comida
+			if prepararcomida():
 				siguiente_objetivo()
+		4: 
+			pass
 		# Añade más casos según necesites
 
 # Funciones de ejemplo para verificar condiciones en 3D
@@ -112,8 +115,11 @@ func vio_la_nota_():
 	
 	# Implementa tu lógica aquí
 	#return false
-func Llamar():
-	pass
+func prepararcomida():
+	var comida = $"../RigidBody3D"
+	var microondas = $"../microondas/Area3D"
+	return microondas.overlaps_body(comida)
+	return false
 
 func _process(_delta):
 	verificar_objetivo()
