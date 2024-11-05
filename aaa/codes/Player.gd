@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 const WALK_SPEED = 0.7
 const GRAVITY = -9.8
-const SENSITIVITY = 0.005
+const SENSITIVITY = 0.003
 
 @onready var head = $Head
 @onready var camera = $Head/Camera3D
@@ -13,7 +13,6 @@ const SENSITIVITY = 0.005
 var dragged_item = null
 var cursor_offset = Vector3(0, 1, 0)
 var agarrado: RigidBody3D
- # Ajusta la altura del objeto arrastrado
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -24,7 +23,6 @@ func _physics_process(delta: float) -> void:
 
 func _process(delta: float) -> void:
 	process_raycast_cool()
-
 	# Movimiento del jugador
 	var speed = WALK_SPEED
 	if Input.is_action_pressed("right"):
@@ -40,14 +38,14 @@ func _process(delta: float) -> void:
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-
+# Funcion de interactuar con objetos y agarrarlos
 func process_raycast_cool():
 	hint_icon.hide()
 	if raycast.is_colliding(): 
 		var collider = raycast.get_collider()
 		if collider.has_method("action_use"):
 			if Input.is_action_just_pressed("usar"):
-				collider.action_use()  # Llama al método de recogida
+				collider.action_use()  
 			else:
 				hint_icon.show()
 		if agarrado == null and collider.is_in_group("agarrables"):

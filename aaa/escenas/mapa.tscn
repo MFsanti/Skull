@@ -1,4 +1,4 @@
-[gd_scene load_steps=284 format=4 uid="uid://cbc5f52ccsku1"]
+[gd_scene load_steps=283 format=4 uid="uid://cbc5f52ccsku1"]
 
 [ext_resource type="PackedScene" uid="uid://7k67fd1gmhju" path="res://escenas/ui_notas.tscn" id="2_f6wc0"]
 [ext_resource type="Texture2D" uid="uid://cvry63nojvgsx" path="res://texturas/kenney_crosshair-pack/PNG/White/crosshair001.png" id="2_johet"]
@@ -46,7 +46,6 @@
 [ext_resource type="Material" uid="uid://nyqa3iglem5k" path="res://materiales/luz.material" id="45_q8uya"]
 [ext_resource type="Script" path="res://escenas/notas.gd" id="46_r4bcw"]
 [ext_resource type="Script" path="res://escenas/objetivos.gd" id="47_atv5i"]
-[ext_resource type="Shader" path="res://escenas/outline.gdshader" id="49_kcdgk"]
 
 [sub_resource type="Gradient" id="Gradient_6ykiw"]
 
@@ -2644,13 +2643,11 @@ size = Vector3(13.8285, 6.08545, 15.1521)
 size = Vector3(0.0742798, 0.0544434, 0.10614)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2x31e"]
+rough = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_bgq1d"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_c6f6l"]
-render_priority = 0
-shader = ExtResource("49_kcdgk")
-shader_parameter/FOV = 75.0
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_kod7u"]
 points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
@@ -2660,22 +2657,10 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../Node3D/Head/Camera3D/RayCast3D/point:position")
+tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, -0.0404664, -0.320166)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -2873,22 +2858,6 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_klmo1")
 
-[sub_resource type="Animation" id="Animation_5mn48"]
-resource_name = "open"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("StaticBody3D/microwave_door:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, -1.91986, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_s3bak"]
 length = 0.001
 tracks/0/type = "value"
@@ -2920,6 +2889,22 @@ tracks/0/keys = {
 "values": [Vector3(0, -1.91986, 0), Vector3(0, 0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_5mn48"]
+resource_name = "open"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StaticBody3D/microwave_door:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -1.91986, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4mwfd"]
 _data = {
 "RESET": SubResource("Animation_s3bak"),
@@ -2937,6 +2922,7 @@ environment = SubResource("Environment_x37oi")
 [node name="Node3D" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.69826, 2.08251, 9.41342)
 collision_layer = 3
+collision_priority = 2.0
 script = ExtResource("2_uu88t")
 metadata/_edit_group_ = true
 
@@ -2997,12 +2983,12 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_h81gw")
 
-[node name="point" type="Marker3D" parent="Node3D/Head/Camera3D/RayCast3D"]
+[node name="point" type="Node3D" parent="Node3D/Head/Camera3D"]
 unique_name_in_owner = true
-transform = Transform3D(2, 0, 0, 0, -8.74228e-08, 2, 0, -2, -8.74228e-08, 0, -0.0404664, -0.320166)
-metadata/_edit_group_ = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.487564)
 
 [node name="suelo" type="StaticBody3D" parent="."]
+collision_mask = 3
 metadata/_edit_group_ = true
 
 [node name="colision_suelo" type="CollisionShape3D" parent="suelo"]
