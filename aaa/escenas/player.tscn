@@ -1,0 +1,131 @@
+[gd_scene load_steps=15 format=3 uid="uid://dw6ehqtw2bm5b"]
+
+[ext_resource type="Script" path="res://codes/Player.gd" id="1_ukvji"]
+[ext_resource type="Texture2D" uid="uid://cvry63nojvgsx" path="res://texturas/kenney_crosshair-pack/PNG/White/crosshair001.png" id="2_63trc"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_oer8w"]
+radius = 0.538364
+height = 2.01196
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_6eoe6"]
+
+[sub_resource type="Gradient" id="Gradient_6ykiw"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_p540k"]
+noise_type = 0
+seed = 1
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_8kj0q"]
+in_3d_space = true
+seamless = true
+color_ramp = SubResource("Gradient_6ykiw")
+noise = SubResource("FastNoiseLite_p540k")
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qrlt4"]
+sky_top_color = Color(1.46648e-08, 0.0170167, 0.0348118, 1)
+sky_curve = 1.48728e-05
+sky_cover = SubResource("NoiseTexture2D_8kj0q")
+sky_cover_modulate = Color(0.340339, 0.340339, 0.340339, 1)
+ground_horizon_color = Color(0, 0, 0, 1)
+energy_multiplier = 0.5
+
+[sub_resource type="Sky" id="Sky_rck73"]
+sky_material = SubResource("ProceduralSkyMaterial_qrlt4")
+
+[sub_resource type="Environment" id="Environment_8smbx"]
+background_mode = 2
+sky = SubResource("Sky_rck73")
+tonemap_mode = 3
+ssil_radius = 0.01
+sdfgi_use_occlusion = true
+fog_light_color = Color(0.499461, 0.0803198, 0, 1)
+fog_light_energy = 0.49
+fog_density = 0.1889
+fog_aerial_perspective = 0.2
+volumetric_fog_albedo = Color(0.601587, 0.0661136, 0.123895, 1)
+volumetric_fog_emission = Color(0.437286, 0.134309, 0.105772, 1)
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_0b15m"]
+dof_blur_far_enabled = true
+dof_blur_near_transition = 5.0
+dof_blur_amount = 0.08
+
+[sub_resource type="Theme" id="Theme_gks23"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2vual"]
+bg_color = Color(0, 0, 0, 0.5)
+expand_margin_left = 20.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h81gw"]
+texture = ExtResource("2_63trc")
+
+[node name="Node3D" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.69826, 1.53154, 9.41342)
+collision_priority = 2.0
+script = ExtResource("1_ukvji")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.22, 0, 0, 0, 0.22, 0, 0, 0, 0.22, -0.00279462, 0.166226, -0.00170326)
+shape = SubResource("CapsuleShape3D_oer8w")
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+mesh = SubResource("CapsuleMesh_6eoe6")
+metadata/_edit_group_ = true
+
+[node name="Head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2457, -0.000609398)
+metadata/_edit_group_ = true
+
+[node name="Camera3D" type="Camera3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.100339, 0)
+environment = SubResource("Environment_8smbx")
+attributes = SubResource("CameraAttributesPractical_0b15m")
+metadata/_edit_group_ = true
+
+[node name="RayCast3D" type="RayCast3D" parent="Head/Camera3D"]
+transform = Transform3D(0.5, 0, 0, 0, -2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, 0, -0.000352859, 0)
+collision_mask = 3
+metadata/_edit_group_ = true
+
+[node name="ActionHintIcon" type="PanelContainer" parent="Head/Camera3D/RayCast3D"]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 74.0
+offset_top = 26.0
+offset_right = 177.0
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme = SubResource("Theme_gks23")
+theme_override_styles/panel = SubResource("StyleBoxFlat_2vual")
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="Head/Camera3D/RayCast3D/ActionHintIcon"]
+layout_mode = 2
+text = "E Para Usar"
+
+[node name="PanelContainer" type="PanelContainer" parent="Head/Camera3D/RayCast3D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_h81gw")
+
+[node name="point" type="Node3D" parent="Head/Camera3D"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.378526)
+metadata/_edit_group_ = true

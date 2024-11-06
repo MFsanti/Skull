@@ -1,5 +1,9 @@
 extends Node
 
+@onready var comida = $"../RigidBody3D"
+
+@onready var micro = $"../microondas/Area3D"
+
 # Referencia al nodo de UI
 var ui_layer: CanvasLayer
 var objetivo_label: Label
@@ -110,16 +114,9 @@ func vio_la_nota_():
 	if Global.leida:
 		return true
 
-#func comida_preparada() -> bool:
-	#var notas = $"../notas/ReadableNote"
-	
-	# Implementa tu lógica aquí
-	#return false
 func prepararcomida():
-	var comida = $"../RigidBody3D"
-	var microondas = $"../microondas/Area3D"
-	return microondas.overlaps_body(comida)
-	return false
+	return micro.get_overlapping_bodies(comida)
+	print("esta dentro o.o")
 
 func _process(_delta):
 	verificar_objetivo()

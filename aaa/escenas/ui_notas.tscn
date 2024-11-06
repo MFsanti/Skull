@@ -39,4 +39,4 @@ text = "Esto es un Titulo de la Nota"
 
 [node name="ContentLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Este es el contenido de la nota :p. wacho juro que l0o vi corriendo y quiero que corra de nuevoo"
+text = "ajajja una nota"
