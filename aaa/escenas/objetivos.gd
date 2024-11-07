@@ -116,7 +116,6 @@ func vio_la_nota_():
 
 func prepararcomida():
 	return micro.get_overlapping_bodies(comida)
-	print("esta dentro o.o")
 
 func _process(_delta):
 	verificar_objetivo()

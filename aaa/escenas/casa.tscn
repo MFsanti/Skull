@@ -1,4 +1,4 @@
-[gd_scene load_steps=241 format=4 uid="uid://is5ausry8xpt"]
+[gd_scene load_steps=254 format=4 uid="uid://is5ausry8xpt"]
 
 [ext_resource type="Script" path="res://codes/puerta.gd" id="1_milm6"]
 [ext_resource type="Texture2D" uid="uid://h3tib48n8kdi" path="res://Blender/puerta/Room-Door/textures/Door_C.jpg" id="2_sxjhp"]
@@ -36,8 +36,18 @@
 [ext_resource type="Texture2D" uid="uid://dih18mr1lmxa5" path="res://texturas/Ground047_4K-JPG/Ground047_4K-JPG_Roughness.jpg" id="34_n8uq1"]
 [ext_resource type="Material" uid="uid://bhc830s1cwv8d" path="res://materiales/metal_negro.material" id="35_jy8q1"]
 [ext_resource type="Material" uid="uid://nyqa3iglem5k" path="res://materiales/luz.material" id="36_0isce"]
-[ext_resource type="Script" path="res://codes/Switch.gd" id="37_c5o3r"]
-[ext_resource type="Script" path="res://codes/Pasillo_Hall.gd" id="38_66yyw"]
+[ext_resource type="Script" path="res://codes/switch/Switch.gd" id="37_c5o3r"]
+[ext_resource type="Script" path="res://codes/switch/Pasillo_Hall.gd" id="38_66yyw"]
+[ext_resource type="Script" path="res://codes/switch/switch_baño.gd" id="39_oxewo"]
+[ext_resource type="Script" path="res://codes/switch/lavadero_switch.gd" id="40_ssv2l"]
+[ext_resource type="Script" path="res://codes/switch/switch_patio.gd" id="41_iacmv"]
+[ext_resource type="Script" path="res://codes/switch/Galpon_switch.gd" id="41_xh2i4"]
+[ext_resource type="Script" path="res://codes/switch/Comedor.gd" id="42_mfl3v"]
+[ext_resource type="Script" path="res://codes/switch/switch_escalera.gd" id="43_os11d"]
+[ext_resource type="Script" path="res://codes/switch/Habitacion_3.gd" id="44_e2tb4"]
+[ext_resource type="Script" path="res://codes/switch/Pasillo_habitaciones.gd" id="45_a2p6d"]
+[ext_resource type="Script" path="res://codes/switch/Habitacion_2.gd" id="46_5spra"]
+[ext_resource type="Script" path="res://codes/switch/Habitacion.gd" id="47_dagf7"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_vlvsy"]
 resource_local_to_scene = true
@@ -2563,8 +2573,17 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ffcg2")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_55kvl"]
-size = Vector3(6.18494, 5.46136, 2.56689)
+[sub_resource type="SphereShape3D" id="SphereShape3D_tfhlb"]
+radius = 3.79235
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_h22xv"]
+radius = 4.09376
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_7y5ad"]
+radius = 4.12131
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_rpxx6"]
+radius = 3.80252
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8cx70"]
 size = Vector3(13.8285, 6.08545, 15.1521)
@@ -3801,6 +3820,7 @@ surface_material_override/0 = SubResource("ShaderMaterial_drqav")
 
 [node name="patio" type="MeshInstance3D" parent="estructura/exteriores"]
 transform = Transform3D(6, 0, 0, 0, 1, 0, 0, 0, 2, -10.3142, 0, 0)
+layers = 7
 mesh = SubResource("ArrayMesh_thtbl")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_x3y73")
@@ -3848,6 +3868,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_yjgfo")
 
 [node name="piso_galpon" type="MeshInstance3D" parent="estructura/pisos"]
 transform = Transform3D(6, 0, 0, 0, 1, 0, 0, 0, 2, -20.6466, 0, 1.78602)
+layers = 6
 mesh = SubResource("ArrayMesh_ue6le")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_4bd5a")
@@ -3929,8 +3950,9 @@ mesh = SubResource("ArrayMesh_gasfd")
 skeleton = NodePath("")
 
 [node name="Comedor" type="OmniLight3D" parent="Iluminacion"]
-transform = Transform3D(3.33333, 0, 0, 0, 3.33333, 0, 0, 0, 3.33333, -12.9251, 2.24323, -8.09435)
+transform = Transform3D(3.33333, 0, 0, 0, 3.33333, 0, 0, 0, 3.33333, -13.1461, 2.24323, -8.21831)
 light_color = Color(0.71, 0.657933, 0.5538, 1)
+light_energy = 1.5
 light_cull_mask = 4294967293
 omni_range = 0.94
 omni_attenuation = -2.0
@@ -3948,6 +3970,7 @@ surface_material_override/1 = ExtResource("36_0isce")
 [node name="Comedor_2" type="OmniLight3D" parent="Iluminacion"]
 transform = Transform3D(3.33333, 0, 0, 0, 3.33333, 0, 0, 0, 3.33333, -13.2791, 2.23981, -12.7711)
 light_color = Color(0.71, 0.657933, 0.5538, 1)
+light_energy = 1.5
 light_cull_mask = 4294967293
 omni_range = 1.0
 omni_attenuation = -2.0
@@ -3963,64 +3986,176 @@ surface_material_override/0 = ExtResource("35_jy8q1")
 surface_material_override/1 = ExtResource("36_0isce")
 
 [node name="Comedor_3" type="OmniLight3D" parent="Iluminacion"]
-transform = Transform3D(3.33333, 0, 0, 0, 3.33333, 0, 0, 0, 3.33333, -7.37521, 1.48631, -13.5457)
+transform = Transform3D(3.33333, 0, 0, 0, 3.33333, 0, 0, 0, 3.33333, -7.37521, 1.48631, -14.2481)
 light_color = Color(0.71, 0.657933, 0.5538, 1)
-light_cull_mask = 4294967293
+light_cull_mask = 4294967292
 omni_range = 1.0
 omni_attenuation = -2.0
+
+[node name="Node3D" type="Node3D" parent="Iluminacion/Comedor_3"]
+transform = Transform3D(0.7, 0, 0, 0, -3.0598e-08, 0.7, 0, -0.7, -3.0598e-08, -0.114838, -0.135654, 0)
+
+[node name="Light_11" type="MeshInstance3D" parent="Iluminacion/Comedor_3/Node3D"]
+transform = Transform3D(1.31134e-08, 0.3, 4.52987e-08, 0.3, -1.31134e-08, 0, 2.66454e-15, 4.52987e-08, -0.3, 0.22027, 0.0421934, 0.615049)
+mesh = SubResource("ArrayMesh_oy4i3")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("35_jy8q1")
+surface_material_override/1 = ExtResource("36_0isce")
 
 [node name="Patio" type="OmniLight3D" parent="Iluminacion"]
-transform = Transform3D(3.33333, 0, 0, 0, 3.33333, 0, 0, 0, 3.33333, -6.83404, 2.09849, -7.91799)
+transform = Transform3D(3.33333, 0, 0, 0, 3.33333, 0, 0, 0, 3.33333, -5.28988, 2.09849, -8.44486)
+layers = 3
 light_color = Color(0.71, 0.657933, 0.5538, 1)
-omni_range = 1.0
+light_energy = 1.5
+omni_range = 0.858272
 omni_attenuation = -2.0
 
+[node name="Node3D" type="Node3D" parent="Iluminacion/Patio"]
+transform = Transform3D(0.7, 0, 0, 0, -3.0598e-08, 0.7, 0, -0.7, -3.0598e-08, -0.114838, -0.135654, 0)
+
+[node name="Light_11" type="MeshInstance3D" parent="Iluminacion/Patio/Node3D"]
+transform = Transform3D(-2.26494e-08, -2.62268e-08, -0.3, -2.62268e-08, -0.3, 2.62268e-08, -0.3, 2.62268e-08, 2.26494e-08, 0.569462, -0.0258272, 0.197982)
+mesh = SubResource("ArrayMesh_oy4i3")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("35_jy8q1")
+surface_material_override/1 = ExtResource("36_0isce")
+
 [node name="Patio2" type="OmniLight3D" parent="Iluminacion"]
-transform = Transform3D(3.33333, 0, 0, 0, 3.33333, 0, 0, 0, 3.33333, -8.32374, 2.47484, -10.8308)
+transform = Transform3D(3.33333, 0, 0, 0, 3.33333, 0, 0, 0, 3.33333, -8.33593, 1.69324, -10.5337)
 light_color = Color(0.71, 0.657933, 0.5538, 1)
 light_cull_mask = 4294967293
-omni_range = 1.0
+omni_range = 0.718371
 omni_attenuation = -2.0
+
+[node name="Node3D" type="Node3D" parent="Iluminacion/Patio2"]
+transform = Transform3D(0.7, 0, 0, 0, -3.0598e-08, 0.7, 0, -0.7, -3.0598e-08, -0.114838, -0.135654, 0)
+
+[node name="Light_11" type="MeshInstance3D" parent="Iluminacion/Patio2/Node3D"]
+transform = Transform3D(-8.74228e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.74228e-09, -0.57772, 0.143753, 0.316204)
+mesh = SubResource("ArrayMesh_oy4i3")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("35_jy8q1")
+surface_material_override/1 = ExtResource("36_0isce")
 
 [node name="Lavadero" type="OmniLight3D" parent="Iluminacion"]
 transform = Transform3D(3.33333, 0, 0, 0, 3.33333, 0, 0, 0, 3.33333, -5.83504, 1.48631, -3.64665)
 light_color = Color(0.71, 0.657933, 0.5538, 1)
 light_cull_mask = 4294967293
 shadow_bias = 1.0
-omni_range = 0.6
+omni_range = 0.572986
 omni_attenuation = -2.0
+
+[node name="Node3D" type="Node3D" parent="Iluminacion/Lavadero"]
+transform = Transform3D(0.7, 0, 0, 0, -3.0598e-08, 0.7, 0, -0.7, -3.0598e-08, -0.114838, -0.135654, 0)
+
+[node name="Light_11" type="MeshInstance3D" parent="Iluminacion/Lavadero/Node3D"]
+transform = Transform3D(8.74228e-09, 0.2, 1.74846e-08, 0.2, -8.74228e-09, 0, 8.88178e-16, 1.74846e-08, -0.2, 0.155847, 0.121306, 0.622764)
+mesh = SubResource("ArrayMesh_oy4i3")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("35_jy8q1")
+surface_material_override/1 = ExtResource("36_0isce")
 
 [node name="Baño" type="OmniLight3D" parent="Iluminacion"]
-transform = Transform3D(3.33333, 0, 0, 0, 3.33333, 0, 0, 0, 3.33333, -8.90639, 1.64541, -4.85585)
+transform = Transform3D(3.33333, 0, 0, 0, 3.33333, 0, 0, 0, 3.33333, -8.68649, 1.64541, -4.96534)
 light_color = Color(0.71, 0.657933, 0.5538, 1)
 shadow_bias = 1.0
-omni_range = 0.7
+omni_range = 0.632744
 omni_attenuation = -2.0
+
+[node name="Node3D" type="Node3D" parent="Iluminacion/Baño"]
+transform = Transform3D(0.7, 0, 0, 0, -3.0598e-08, 0.7, 0, -0.7, -3.0598e-08, 0.067155, 0.202481, 0)
+
+[node name="Light_11" type="MeshInstance3D" parent="Iluminacion/Baño/Node3D"]
+transform = Transform3D(-0.3, 0, -4.52987e-08, 0, 0.3, 0, 4.52987e-08, 0, -0.3, -0.0832684, 0.0160427, 0.0643824)
+mesh = SubResource("ArrayMesh_oy4i3")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("35_jy8q1")
+surface_material_override/1 = ExtResource("36_0isce")
 
 [node name="Pasillo Hall" type="OmniLight3D" parent="Iluminacion"]
-transform = Transform3D(3.33333, 0, 0, 0, 3.33333, 0, 0, 0, 3.33333, -11.1629, 2.03387, -4.19653)
+transform = Transform3D(3.33333, 0, 0, 0, 3.33333, 0, 0, 0, 3.33333, -11.3917, 1.13877, -4.19653)
 light_color = Color(0.71, 0.657933, 0.5538, 1)
-omni_range = 0.6
+omni_range = 0.478793
 omni_attenuation = -2.0
+
+[node name="Node3D" type="Node3D" parent="Iluminacion/Pasillo Hall"]
+transform = Transform3D(0.7, 0, 0, 0, -3.0598e-08, 0.7, 0, -0.7, -3.0598e-08, -0.114838, -0.135654, 0)
+
+[node name="Light_11" type="MeshInstance3D" parent="Iluminacion/Pasillo Hall/Node3D"]
+transform = Transform3D(-8.74228e-09, 0.2, -8.74228e-09, 0, -8.74228e-09, -0.2, -0.2, -8.74228e-09, 0, 0.22027, 0.324724, 0.692403)
+mesh = SubResource("ArrayMesh_oy4i3")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("35_jy8q1")
+surface_material_override/1 = ExtResource("36_0isce")
 
 [node name="Escaleras" type="OmniLight3D" parent="Iluminacion"]
-transform = Transform3D(3.33333, 0, 0, 0, 3.33333, 0, 0, 0, 3.33333, -14.8495, 3.3121, -3.85743)
+transform = Transform3D(3.33333, 0, 0, 0, 3.33333, 0, 0, 0, 3.33333, -14.8495, 3.3121, -4.00871)
 light_color = Color(0.71, 0.657933, 0.5538, 1)
-omni_range = 0.777
+omni_range = 0.562832
 omni_attenuation = -2.0
+
+[node name="Node3D" type="Node3D" parent="Iluminacion/Escaleras"]
+transform = Transform3D(0.7, 0, 0, 0, -3.0598e-08, 0.7, 0, -0.7, -3.0598e-08, -0.114838, -0.135654, 0)
+
+[node name="Light_11" type="MeshInstance3D" parent="Iluminacion/Escaleras/Node3D"]
+transform = Transform3D(-8.74228e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.74228e-09, -0.369878, 0.0160427, 0.336735)
+mesh = SubResource("ArrayMesh_oy4i3")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("35_jy8q1")
+surface_material_override/1 = ExtResource("36_0isce")
 
 [node name="Pasillo_Habitaciones" type="OmniLight3D" parent="Iluminacion"]
-transform = Transform3D(3.33333, 0, 0, 0, 3.33333, 0, 0, 0, 3.33333, -12.0161, 4.56737, -2.16149)
+transform = Transform3D(3.33333, 0, 0, 0, 3.33333, 0, 0, 0, 3.33333, -11.0287, 4.95062, -2.51897)
 light_color = Color(0.71, 0.657933, 0.5538, 1)
-omni_range = 0.673979
+omni_range = 0.788837
 omni_attenuation = -2.0
 
+[node name="Lampara_1" type="Node3D" parent="Iluminacion/Pasillo_Habitaciones"]
+transform = Transform3D(0.09, 0, 0, 0, 0.09, 0, 0, 0, 0.09, 0, 0.243116, -0.0727992)
+
+[node name="Cylinder" type="MeshInstance3D" parent="Iluminacion/Pasillo_Habitaciones/Lampara_1"]
+transform = Transform3D(13.9004, 0, 0, 0, -1.65706e-06, 13.9004, 0, -13.9004, -1.65706e-06, 0, 5.40014, 0)
+mesh = SubResource("ArrayMesh_y2562")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("35_jy8q1")
+
+[node name="Cylinder_001" type="MeshInstance3D" parent="Iluminacion/Pasillo_Habitaciones/Lampara_1"]
+transform = Transform3D(13.9004, 0, 0, 0, -1.65706e-06, 13.9004, 0, -13.9004, -1.65706e-06, 0, 5.40014, 0)
+mesh = SubResource("ArrayMesh_20rax")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("36_0isce")
+
+[node name="Cylinder_002" type="MeshInstance3D" parent="Iluminacion/Pasillo_Habitaciones/Lampara_1"]
+transform = Transform3D(13.9004, 0, 0, 0, -1.65706e-06, 13.9004, 0, -13.9004, -1.65706e-06, 0, 5.63559, 0)
+mesh = SubResource("ArrayMesh_gasfd")
+skeleton = NodePath("")
+
 [node name="Habitacion_1" type="OmniLight3D" parent="Iluminacion"]
-transform = Transform3D(3.33333, 0, 0, 0, 3.33333, 0, 0, 0, 3.33333, -7.12791, 4.98151, -0.0610027)
+transform = Transform3D(3.33333, 0, 0, 0, 3.33333, 0, 0, 0, 3.33333, -7.12791, 4.72089, -0.0610027)
 light_color = Color(0.71, 0.657933, 0.5538, 1)
 light_cull_mask = 4294967294
-omni_range = 0.9
+omni_range = 0.790978
 omni_attenuation = -2.0
+
+[node name="Lampara_1" type="Node3D" parent="Iluminacion/Habitacion_1"]
+transform = Transform3D(0.09, 0, 0, 0, 0.09, 0, 0, 0, 0.09, 0, 0.310724, 0)
+
+[node name="Cylinder" type="MeshInstance3D" parent="Iluminacion/Habitacion_1/Lampara_1"]
+transform = Transform3D(13.9004, 0, 0, 0, -1.65706e-06, 13.9004, 0, -13.9004, -1.65706e-06, 0, 5.40014, 0)
+mesh = SubResource("ArrayMesh_y2562")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("35_jy8q1")
+
+[node name="Cylinder_001" type="MeshInstance3D" parent="Iluminacion/Habitacion_1/Lampara_1"]
+transform = Transform3D(13.9004, 0, 0, 0, -1.65706e-06, 13.9004, 0, -13.9004, -1.65706e-06, 0, 5.40014, 0)
+mesh = SubResource("ArrayMesh_20rax")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("36_0isce")
+
+[node name="Cylinder_002" type="MeshInstance3D" parent="Iluminacion/Habitacion_1/Lampara_1"]
+transform = Transform3D(13.9004, 0, 0, 0, -1.65706e-06, 13.9004, 0, -13.9004, -1.65706e-06, 0, 5.63559, 0)
+mesh = SubResource("ArrayMesh_gasfd")
+skeleton = NodePath("")
 
 [node name="Habitacion_3" type="OmniLight3D" parent="Iluminacion"]
 transform = Transform3D(3.33333, 0, 0, 0, 3.33333, 0, 0, 0, 3.33333, -13.0933, 4.86399, -9.31928)
@@ -4029,12 +4164,52 @@ light_cull_mask = 4294967294
 omni_range = 1.0
 omni_attenuation = -2.0
 
+[node name="Lampara_1" type="Node3D" parent="Iluminacion/Habitacion_3"]
+transform = Transform3D(0.09, 0, 0, 0, 0.09, 0, 0, 0, 0.09, 0, 0.243116, 0)
+
+[node name="Cylinder" type="MeshInstance3D" parent="Iluminacion/Habitacion_3/Lampara_1"]
+transform = Transform3D(13.9004, 0, 0, 0, -1.65706e-06, 13.9004, 0, -13.9004, -1.65706e-06, 0, 5.40014, 0)
+mesh = SubResource("ArrayMesh_y2562")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("35_jy8q1")
+
+[node name="Cylinder_001" type="MeshInstance3D" parent="Iluminacion/Habitacion_3/Lampara_1"]
+transform = Transform3D(13.9004, 0, 0, 0, -1.65706e-06, 13.9004, 0, -13.9004, -1.65706e-06, 0, 5.40014, 0)
+mesh = SubResource("ArrayMesh_20rax")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("36_0isce")
+
+[node name="Cylinder_002" type="MeshInstance3D" parent="Iluminacion/Habitacion_3/Lampara_1"]
+transform = Transform3D(13.9004, 0, 0, 0, -1.65706e-06, 13.9004, 0, -13.9004, -1.65706e-06, 0, 5.63559, 0)
+mesh = SubResource("ArrayMesh_gasfd")
+skeleton = NodePath("")
+
 [node name="Habitacion_2" type="OmniLight3D" parent="Iluminacion"]
-transform = Transform3D(3.33333, 0, 0, 0, 3.33333, 0, 0, 0, 3.33333, -14.5024, 4.98151, -0.429853)
+transform = Transform3D(3.33333, 0, 0, 0, 3.33333, 0, 0, 0, 3.33333, -14.5024, 4.69061, -0.429852)
 light_color = Color(0.71, 0.657933, 0.5538, 1)
 light_cull_mask = 4294967294
-omni_range = 0.9
+omni_range = 0.825294
 omni_attenuation = -2.0
+
+[node name="Lampara_1" type="Node3D" parent="Iluminacion/Habitacion_2"]
+transform = Transform3D(0.09, 0, 0, 0, 0.09, 0, 0, 0, 0.09, 0, 0.243116, 0)
+
+[node name="Cylinder" type="MeshInstance3D" parent="Iluminacion/Habitacion_2/Lampara_1"]
+transform = Transform3D(13.9004, 0, 0, 0, -1.65706e-06, 13.9004, 0, -13.9004, -1.65706e-06, 0, 5.40014, 0)
+mesh = SubResource("ArrayMesh_y2562")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("35_jy8q1")
+
+[node name="Cylinder_001" type="MeshInstance3D" parent="Iluminacion/Habitacion_2/Lampara_1"]
+transform = Transform3D(13.9004, 0, 0, 0, -1.65706e-06, 13.9004, 0, -13.9004, -1.65706e-06, 0, 5.40014, 0)
+mesh = SubResource("ArrayMesh_20rax")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("36_0isce")
+
+[node name="Cylinder_002" type="MeshInstance3D" parent="Iluminacion/Habitacion_2/Lampara_1"]
+transform = Transform3D(13.9004, 0, 0, 0, -1.65706e-06, 13.9004, 0, -13.9004, -1.65706e-06, 0, 5.63559, 0)
+mesh = SubResource("ArrayMesh_gasfd")
+skeleton = NodePath("")
 
 [node name="SpotLight3D" type="OmniLight3D" parent="Iluminacion"]
 transform = Transform3D(3.33333, 0, 0, 0, 3.33333, 0, 0, 0, 3.33333, -8.44657, 2.24344, 3.42075)
@@ -4045,7 +4220,7 @@ omni_range = 1.0
 omni_attenuation = -2.0
 
 [node name="Node3D" type="Node3D" parent="Iluminacion/SpotLight3D"]
-transform = Transform3D(9.55343e-16, 2.18557e-08, -0.5, 0.5, -2.18557e-08, 0, -2.18557e-08, -0.5, -2.18557e-08, -0.157311, -0.0559147, -0.20321)
+transform = Transform3D(9.55343e-16, 2.18557e-08, -0.5, 0.5, -2.18557e-08, 0, -2.18557e-08, -0.5, -2.18557e-08, -0.157311, 0.000450373, -0.20321)
 
 [node name="Light_11" type="MeshInstance3D" parent="Iluminacion/SpotLight3D/Node3D"]
 transform = Transform3D(0.3, 0, 0, 0, -1.31134e-08, -0.3, 0, 0.3, -1.31134e-08, 0.106258, 0.286517, 0)
@@ -4056,26 +4231,26 @@ surface_material_override/1 = ExtResource("36_0isce")
 
 [node name="Switch" type="Node3D" parent="."]
 
-[node name="Comedor_1" type="Node3D" parent="Switch"]
+[node name="Hall" type="Node3D" parent="Switch"]
 transform = Transform3D(-0.02, 0, -1.74845e-09, 0, 0.02, 0, 1.74845e-09, 0, -0.02, -10.0777, 1.10531, 2.03278)
 metadata/_edit_group_ = true
 
-[node name="Switch-Switcher" type="MeshInstance3D" parent="Switch/Comedor_1"]
+[node name="Switch-Switcher" type="MeshInstance3D" parent="Switch/Hall"]
 transform = Transform3D(1, 0, 0, 0, -0.0697989, -2.39854, 0, 1.99878, -0.0837587, -9.82, 1.11595, 2.02032)
 mesh = SubResource("ArrayMesh_jygrq")
 skeleton = NodePath("")
 
-[node name="Switch-Container" type="MeshInstance3D" parent="Switch/Comedor_1"]
+[node name="Switch-Container" type="MeshInstance3D" parent="Switch/Hall"]
 transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 2.4, -9.82, 1.11595, 2.02032)
 mesh = SubResource("ArrayMesh_0h7e4")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Switch/Comedor_1/Switch-Container"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Switch/Hall/Switch-Container"]
 script = ExtResource("37_c5o3r")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Switch/Comedor_1/Switch-Container/StaticBody3D"]
-transform = Transform3D(1, 0, -4.26326e-14, 0, 1, 0, -2.4869e-14, 0, 1, -0.542694, -0.081192, 0.499969)
-shape = SubResource("BoxShape3D_55kvl")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Switch/Hall/Switch-Container/StaticBody3D"]
+transform = Transform3D(1, 0, -2.84217e-14, 0, 1, 0, -2.4869e-14, 0, 1, -0.542694, -0.081192, -0.885895)
+shape = SubResource("SphereShape3D_tfhlb")
 
 [node name="Pasillo_Hall" type="Node3D" parent="Switch"]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -11.7476, 1.10531, -5.05171)
@@ -4096,7 +4271,238 @@ script = ExtResource("38_66yyw")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Switch/Pasillo_Hall/Switch-Container/StaticBody3D"]
 transform = Transform3D(1, 0, -4.26326e-14, 0, 1, 0, -2.4869e-14, 0, 1, -0.542694, -0.081192, 0.783386)
-shape = SubResource("BoxShape3D_55kvl")
+shape = SubResource("SphereShape3D_h22xv")
+
+[node name="Baño" type="Node3D" parent="Switch"]
+transform = Transform3D(-8.74227e-10, 0, 0.02, 0, 0.02, 0, -0.02, 0, -8.74227e-10, -9.9856, 1.27204, -4.79865)
+metadata/_edit_group_ = true
+
+[node name="Switch-Switcher" type="MeshInstance3D" parent="Switch/Baño"]
+transform = Transform3D(1, 0, 0, 0, -0.0697989, -2.39854, 0, 1.99878, -0.0837587, -3.35973, 1.11595, 2.02032)
+mesh = SubResource("ArrayMesh_jygrq")
+skeleton = NodePath("")
+
+[node name="Switch-Container" type="MeshInstance3D" parent="Switch/Baño"]
+transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 2.4, -3.35973, 1.11595, 2.02032)
+mesh = SubResource("ArrayMesh_0h7e4")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Switch/Baño/Switch-Container"]
+script = ExtResource("39_oxewo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Switch/Baño/Switch-Container/StaticBody3D"]
+transform = Transform3D(1, 0, -4.26326e-14, 0, 1, 0, -2.4869e-14, 0, 1, -0.542664, -0.081192, -0.159576)
+shape = SubResource("SphereShape3D_7y5ad")
+
+[node name="Lavadero" type="Node3D" parent="Switch"]
+transform = Transform3D(-0.02, 0, 1.74845e-09, 0, 0.02, 0, -1.74845e-09, 0, -0.02, -5.34439, 1.28568, -2.95862)
+metadata/_edit_group_ = true
+
+[node name="Switch-Switcher" type="MeshInstance3D" parent="Switch/Lavadero"]
+transform = Transform3D(1, 0, 0, 0, -0.0697989, -2.39854, 0, 1.99878, -0.0837587, -9.82, 1.11595, 2.02032)
+mesh = SubResource("ArrayMesh_jygrq")
+skeleton = NodePath("")
+
+[node name="Switch-Container" type="MeshInstance3D" parent="Switch/Lavadero"]
+transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 2.4, -9.82, 1.11595, 2.02032)
+mesh = SubResource("ArrayMesh_0h7e4")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Switch/Lavadero/Switch-Container"]
+script = ExtResource("40_ssv2l")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Switch/Lavadero/Switch-Container/StaticBody3D"]
+transform = Transform3D(1, 0, -2.84217e-14, 0, 1, 0, -2.13163e-14, 0, 1, -0.542698, -0.081192, -0.378937)
+shape = SubResource("SphereShape3D_rpxx6")
+
+[node name="Galpon" type="Node3D" parent="Switch"]
+transform = Transform3D(-0.02, 0, 1.74845e-09, 0, 0.02, 0, -1.74845e-09, 0, -0.02, -8.88912, 1.28568, -12.9076)
+metadata/_edit_group_ = true
+
+[node name="Switch-Switcher" type="MeshInstance3D" parent="Switch/Galpon"]
+transform = Transform3D(1, 0, 0, 0, -0.0697989, -2.39854, 0, 1.99878, -0.0837587, -9.82, 1.11595, 2.02032)
+mesh = SubResource("ArrayMesh_jygrq")
+skeleton = NodePath("")
+
+[node name="Switch-Container" type="MeshInstance3D" parent="Switch/Galpon"]
+transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 2.4, -9.82, 1.11595, 2.02032)
+mesh = SubResource("ArrayMesh_0h7e4")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Switch/Galpon/Switch-Container"]
+script = ExtResource("41_xh2i4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Switch/Galpon/Switch-Container/StaticBody3D"]
+transform = Transform3D(1, 0, -2.84217e-14, 0, 1, 0, -2.13163e-14, 0, 1, -0.542698, -0.081192, -0.378937)
+shape = SubResource("SphereShape3D_rpxx6")
+
+[node name="Patio" type="Node3D" parent="Switch"]
+transform = Transform3D(-8.74227e-10, 0, -0.02, 0, 0.02, 0, 0.02, 0, -8.74227e-10, -10.2759, 1.27204, -10.4377)
+metadata/_edit_group_ = true
+
+[node name="Switch-Switcher" type="MeshInstance3D" parent="Switch/Patio"]
+transform = Transform3D(1, 0, 0, 0, -0.0697989, -2.39854, 0, 1.99878, -0.0837587, -3.35973, 1.11595, 2.02032)
+mesh = SubResource("ArrayMesh_jygrq")
+skeleton = NodePath("")
+
+[node name="Switch-Container" type="MeshInstance3D" parent="Switch/Patio"]
+transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 2.4, -3.35973, 1.11595, 2.02032)
+mesh = SubResource("ArrayMesh_0h7e4")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Switch/Patio/Switch-Container"]
+script = ExtResource("41_iacmv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Switch/Patio/Switch-Container/StaticBody3D"]
+transform = Transform3D(1, 0, -4.26326e-14, 0, 1, 0, -2.4869e-14, 0, 1, -0.542664, -0.081192, -0.159576)
+shape = SubResource("SphereShape3D_7y5ad")
+
+[node name="Comedor" type="Node3D" parent="Switch"]
+transform = Transform3D(-0.02, 0, 1.74845e-09, 0, 0.02, 0, -1.74845e-09, 0, -0.02, -12.2541, 1.28568, -5.17513)
+metadata/_edit_group_ = true
+
+[node name="Switch-Switcher" type="MeshInstance3D" parent="Switch/Comedor"]
+transform = Transform3D(1, 0, 0, 0, -0.0697989, -2.39854, 0, 1.99878, -0.0837587, -9.82, 1.11595, 2.02032)
+mesh = SubResource("ArrayMesh_jygrq")
+skeleton = NodePath("")
+
+[node name="Switch-Container" type="MeshInstance3D" parent="Switch/Comedor"]
+transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 2.4, -9.82, 1.11595, 2.02032)
+mesh = SubResource("ArrayMesh_0h7e4")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Switch/Comedor/Switch-Container"]
+script = ExtResource("42_mfl3v")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Switch/Comedor/Switch-Container/StaticBody3D"]
+transform = Transform3D(1, 0, -2.84217e-14, 0, 1, 0, -2.13163e-14, 0, 1, -0.542694, -0.081192, -0.180191)
+shape = SubResource("SphereShape3D_rpxx6")
+
+[node name="Escalera" type="Node3D" parent="Switch"]
+transform = Transform3D(-0.02, 0, 1.74845e-09, 0, 0.02, 0, -1.74845e-09, 0, -0.02, -12.5028, 1.28568, -2.94252)
+metadata/_edit_group_ = true
+
+[node name="Switch-Switcher" type="MeshInstance3D" parent="Switch/Escalera"]
+transform = Transform3D(1, 0, 0, 0, -0.0697989, -2.39854, 0, 1.99878, -0.0837587, -9.82, 1.11595, 2.02032)
+mesh = SubResource("ArrayMesh_jygrq")
+skeleton = NodePath("")
+
+[node name="Switch-Container" type="MeshInstance3D" parent="Switch/Escalera"]
+transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 2.4, -9.82, 1.11595, 2.02032)
+mesh = SubResource("ArrayMesh_0h7e4")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Switch/Escalera/Switch-Container"]
+script = ExtResource("43_os11d")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Switch/Escalera/Switch-Container/StaticBody3D"]
+transform = Transform3D(1, 0, -2.84217e-14, 0, 1, 0, -2.13163e-14, 0, 1, -0.542698, -0.081192, -0.378937)
+shape = SubResource("SphereShape3D_rpxx6")
+
+[node name="Escalera2" type="Node3D" parent="Switch"]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -11.5647, 3.86106, -5.05074)
+metadata/_edit_group_ = true
+
+[node name="Switch-Switcher" type="MeshInstance3D" parent="Switch/Escalera2"]
+transform = Transform3D(1, 0, 0, 0, -0.0697989, -2.39854, 0, 1.99878, -0.0837587, -9.82, 1.11595, 2.02032)
+mesh = SubResource("ArrayMesh_jygrq")
+skeleton = NodePath("")
+
+[node name="Switch-Container" type="MeshInstance3D" parent="Switch/Escalera2"]
+transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 2.4, -9.82, 1.11595, 2.02032)
+mesh = SubResource("ArrayMesh_0h7e4")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Switch/Escalera2/Switch-Container"]
+script = ExtResource("43_os11d")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Switch/Escalera2/Switch-Container/StaticBody3D"]
+transform = Transform3D(1, 0, -2.84217e-14, 0, 1, 0, -2.13163e-14, 0, 1, -0.542698, -0.081192, -0.378937)
+shape = SubResource("SphereShape3D_rpxx6")
+
+[node name="Habitacion_3" type="Node3D" parent="Switch"]
+transform = Transform3D(-0.02, 0, -1.74845e-09, 0, 0.02, 0, 1.74845e-09, 0, -0.02, -11.7849, 3.88222, -5.14362)
+metadata/_edit_group_ = true
+
+[node name="Switch-Switcher" type="MeshInstance3D" parent="Switch/Habitacion_3"]
+transform = Transform3D(1, 0, 0, 0, -0.0697989, -2.39854, 0, 1.99878, -0.0837587, -9.82, 1.11595, 2.02032)
+mesh = SubResource("ArrayMesh_jygrq")
+skeleton = NodePath("")
+
+[node name="Switch-Container" type="MeshInstance3D" parent="Switch/Habitacion_3"]
+transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 2.4, -9.82, 1.11595, 2.02032)
+mesh = SubResource("ArrayMesh_0h7e4")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Switch/Habitacion_3/Switch-Container"]
+script = ExtResource("44_e2tb4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Switch/Habitacion_3/Switch-Container/StaticBody3D"]
+transform = Transform3D(1, 0, -2.84217e-14, 0, 1, 0, -2.13163e-14, 0, 1, -0.542698, -0.081192, -0.378937)
+shape = SubResource("SphereShape3D_rpxx6")
+
+[node name="Pasillo_habitaciones" type="Node3D" parent="Switch"]
+transform = Transform3D(-8.74227e-10, 0, 0.02, 0, 0.02, 0, -0.02, 0, -8.74227e-10, -12.1678, 4.01959, -3.03327)
+metadata/_edit_group_ = true
+
+[node name="Switch-Switcher" type="MeshInstance3D" parent="Switch/Pasillo_habitaciones"]
+transform = Transform3D(1, 0, 0, 0, -0.0697989, -2.39854, 0, 1.99878, -0.0837587, -9.82, 1.11595, 2.02032)
+mesh = SubResource("ArrayMesh_jygrq")
+skeleton = NodePath("")
+
+[node name="Switch-Container" type="MeshInstance3D" parent="Switch/Pasillo_habitaciones"]
+transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 2.4, -9.82, 1.11595, 2.02032)
+mesh = SubResource("ArrayMesh_0h7e4")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Switch/Pasillo_habitaciones/Switch-Container"]
+script = ExtResource("45_a2p6d")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Switch/Pasillo_habitaciones/Switch-Container/StaticBody3D"]
+transform = Transform3D(1, 0, -2.84217e-14, 0, 1, 0, -2.13163e-14, 0, 1, -0.542698, -0.081192, -0.378937)
+shape = SubResource("SphereShape3D_rpxx6")
+
+[node name="Habitacion_2" type="Node3D" parent="Switch"]
+transform = Transform3D(-8.74227e-10, 0, 0.02, 0, 0.02, 0, -0.02, 0, -8.74227e-10, -10.0216, 3.99321, -1.09014)
+metadata/_edit_group_ = true
+
+[node name="Switch-Switcher" type="MeshInstance3D" parent="Switch/Habitacion_2"]
+transform = Transform3D(1, 0, 0, 0, -0.0697989, -2.39854, 0, 1.99878, -0.0837587, -9.82, 1.11595, 2.02032)
+mesh = SubResource("ArrayMesh_jygrq")
+skeleton = NodePath("")
+
+[node name="Switch-Container" type="MeshInstance3D" parent="Switch/Habitacion_2"]
+transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 2.4, -9.82, 1.11595, 2.02032)
+mesh = SubResource("ArrayMesh_0h7e4")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Switch/Habitacion_2/Switch-Container"]
+script = ExtResource("46_5spra")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Switch/Habitacion_2/Switch-Container/StaticBody3D"]
+transform = Transform3D(1, 0, -2.84217e-14, 0, 1, 0, -2.13163e-14, 0, 1, -0.542698, -0.081192, -0.378937)
+shape = SubResource("SphereShape3D_rpxx6")
+
+[node name="Habitacion" type="Node3D" parent="Switch"]
+transform = Transform3D(-8.74227e-10, 0, -0.02, 0, 0.02, 0, 0.02, 0, -8.74227e-10, -12.3516, 4.02551, 0.610067)
+metadata/_edit_group_ = true
+
+[node name="Switch-Switcher" type="MeshInstance3D" parent="Switch/Habitacion"]
+transform = Transform3D(1, 0, 0, 0, -0.0697989, -2.39854, 0, 1.99878, -0.0837587, -9.82, 1.11595, 2.02032)
+mesh = SubResource("ArrayMesh_jygrq")
+skeleton = NodePath("")
+
+[node name="Switch-Container" type="MeshInstance3D" parent="Switch/Habitacion"]
+transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 2.4, -9.82, 1.11595, 2.02032)
+mesh = SubResource("ArrayMesh_0h7e4")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Switch/Habitacion/Switch-Container"]
+script = ExtResource("47_dagf7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Switch/Habitacion/Switch-Container/StaticBody3D"]
+transform = Transform3D(1, 0, -2.84217e-14, 0, 1, 0, -2.13163e-14, 0, 1, -0.542698, -0.081192, -0.378937)
+shape = SubResource("SphereShape3D_rpxx6")
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_layer = 3

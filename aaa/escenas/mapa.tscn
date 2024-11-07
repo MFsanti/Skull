@@ -29,7 +29,7 @@ sky_curve = 1.48728e-05
 sky_cover = SubResource("NoiseTexture2D_8kj0q")
 sky_cover_modulate = Color(0.340339, 0.340339, 0.340339, 1)
 ground_horizon_color = Color(0, 0, 0, 1)
-energy_multiplier = 0.5
+energy_multiplier = 0.4
 
 [sub_resource type="Sky" id="Sky_rck73"]
 sky_material = SubResource("ProceduralSkyMaterial_qrlt4")
