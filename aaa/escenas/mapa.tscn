@@ -37,6 +37,9 @@ sky_material = SubResource("ProceduralSkyMaterial_qrlt4")
 [sub_resource type="Environment" id="Environment_x37oi"]
 background_mode = 2
 sky = SubResource("Sky_rck73")
+ambient_light_sky_contribution = 0.3
+ambient_light_energy = 2.0
+tonemap_mode = 2
 ssil_radius = 16.0
 ssil_intensity = 16.0
 ssil_sharpness = 1.0

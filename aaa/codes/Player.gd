@@ -9,12 +9,19 @@ const SENSITIVITY = 0.003
 @onready var raycast = $Head/Camera3D/RayCast3D
 @onready var hint_icon = %ActionHintIcon
 @onready var point = %point
+@onready var linterna = $Head/Camera3D/SpotLight3D
 
 var dragged_item = null
 var cursor_offset = Vector3(0, 1, 0)
 var agarrado: RigidBody3D
 
 func _physics_process(delta: float) -> void:
+
+	if Input.is_action_pressed("encender"):
+		linterna.visible = true 
+	else:
+		linterna.visible = false
+
 	if not is_on_floor():
 		velocity.y += GRAVITY * delta
 	else:
@@ -65,6 +72,12 @@ func soltar_objeto():
 	agarrado.reparent(get_parent())
 	agarrado.freeze = false
 	agarrado = null
+
+#func encender_linterna():
+	#if Input.is_action_pressed("encender"):
+		#linterna.visible = false
+	#else: 
+		#linterna.visible = true
 
 func _input(event):
 	if event is InputEventMouseMotion: 

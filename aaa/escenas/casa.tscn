@@ -2574,16 +2574,16 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ffcg2")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_tfhlb"]
-radius = 3.79235
+radius = 5.68287
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_h22xv"]
-radius = 4.09376
+radius = 5.82397
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_7y5ad"]
-radius = 4.12131
+radius = 5.8497
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_rpxx6"]
-radius = 3.80252
+radius = 5.92564
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8cx70"]
 size = Vector3(13.8285, 6.08545, 15.1521)
@@ -3926,7 +3926,7 @@ skeleton = NodePath("")
 transform = Transform3D(3.33333, 0, 0, 0, 3.33333, 0, 0, 0, 3.33333, -12.7176, 1.57706, -0.198599)
 light_color = Color(0.71, 0.657933, 0.5538, 1)
 light_cull_mask = 4294967292
-omni_range = 0.787197
+omni_range = 0.856444
 omni_attenuation = -2.0
 
 [node name="Lampara_2" type="Node3D" parent="Iluminacion/Hall_2"]
@@ -4249,7 +4249,7 @@ skeleton = NodePath("")
 script = ExtResource("37_c5o3r")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Switch/Hall/Switch-Container/StaticBody3D"]
-transform = Transform3D(1, 0, -2.84217e-14, 0, 1, 0, -2.4869e-14, 0, 1, -0.542694, -0.081192, -0.885895)
+transform = Transform3D(1, 0, -2.84217e-14, 0, 1, 0, -2.4869e-14, 0, 1, -0.542694, -0.081192, 0.318542)
 shape = SubResource("SphereShape3D_tfhlb")
 
 [node name="Pasillo_Hall" type="Node3D" parent="Switch"]
@@ -4270,7 +4270,7 @@ skeleton = NodePath("")
 script = ExtResource("38_66yyw")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Switch/Pasillo_Hall/Switch-Container/StaticBody3D"]
-transform = Transform3D(1, 0, -4.26326e-14, 0, 1, 0, -2.4869e-14, 0, 1, -0.542694, -0.081192, 0.783386)
+transform = Transform3D(1, 0, -4.26326e-14, 0, 1, 0, -2.4869e-14, 0, 1, -0.542664, -0.081192, 1.59756)
 shape = SubResource("SphereShape3D_h22xv")
 
 [node name="Baño" type="Node3D" parent="Switch"]
@@ -4291,7 +4291,7 @@ skeleton = NodePath("")
 script = ExtResource("39_oxewo")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Switch/Baño/Switch-Container/StaticBody3D"]
-transform = Transform3D(1, 0, -4.26326e-14, 0, 1, 0, -2.4869e-14, 0, 1, -0.542664, -0.081192, -0.159576)
+transform = Transform3D(1, 0, -4.26326e-14, 0, 1, 0, -2.4869e-14, 0, 1, -0.542725, -0.081192, 1.09994)
 shape = SubResource("SphereShape3D_7y5ad")
 
 [node name="Lavadero" type="Node3D" parent="Switch"]
@@ -4312,7 +4312,7 @@ skeleton = NodePath("")
 script = ExtResource("40_ssv2l")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Switch/Lavadero/Switch-Container/StaticBody3D"]
-transform = Transform3D(1, 0, -2.84217e-14, 0, 1, 0, -2.13163e-14, 0, 1, -0.542698, -0.081192, -0.378937)
+transform = Transform3D(1, 0, -5.68434e-14, 0, 1, 0, -2.13163e-14, 0, 1, -0.542702, -0.081192, 0.62265)
 shape = SubResource("SphereShape3D_rpxx6")
 
 [node name="Galpon" type="Node3D" parent="Switch"]
@@ -4333,7 +4333,7 @@ skeleton = NodePath("")
 script = ExtResource("41_xh2i4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Switch/Galpon/Switch-Container/StaticBody3D"]
-transform = Transform3D(1, 0, -2.84217e-14, 0, 1, 0, -2.13163e-14, 0, 1, -0.542698, -0.081192, -0.378937)
+transform = Transform3D(1, 0, -5.68434e-14, 0, 1, 0, -2.13163e-14, 0, 1, -0.542709, -0.081192, 0.495796)
 shape = SubResource("SphereShape3D_rpxx6")
 
 [node name="Patio" type="Node3D" parent="Switch"]
