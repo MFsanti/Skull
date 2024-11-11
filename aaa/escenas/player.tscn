@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dw6ehqtw2bm5b"]
+[gd_scene load_steps=8 format=3 uid="uid://dw6ehqtw2bm5b"]
 
 [ext_resource type="Script" path="res://codes/Player.gd" id="1_ukvji"]
 [ext_resource type="Texture2D" uid="uid://cvry63nojvgsx" path="res://texturas/kenney_crosshair-pack/PNG/White/crosshair001.png" id="2_63trc"]
@@ -8,11 +8,6 @@ radius = 0.538364
 height = 2.01196
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_6eoe6"]
-
-[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_0b15m"]
-dof_blur_far_enabled = true
-dof_blur_near_transition = 5.0
-dof_blur_amount = 0.08
 
 [sub_resource type="Theme" id="Theme_gks23"]
 
@@ -44,7 +39,6 @@ metadata/_edit_group_ = true
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.100339, 0)
-attributes = SubResource("CameraAttributesPractical_0b15m")
 fov = 75.3
 metadata/_edit_group_ = true
 

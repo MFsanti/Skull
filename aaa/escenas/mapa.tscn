@@ -7,9 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://csvlw81tacion" path="res://texturas/Grass001_1K-JPG/Grass001_1K-JPG_NormalDX.jpg" id="4_uicrx"]
 [ext_resource type="Texture2D" uid="uid://dikxdq8ib5syn" path="res://texturas/Grass001_1K-JPG/Grass001_1K-JPG_Roughness.jpg" id="5_aljxg"]
 [ext_resource type="PackedScene" uid="uid://is5ausry8xpt" path="res://escenas/casa.tscn" id="6_qxf58"]
-[ext_resource type="Script" path="res://escenas/notas.gd" id="46_r4bcw"]
-[ext_resource type="Script" path="res://escenas/objetivos.gd" id="47_atv5i"]
-[ext_resource type="Script" path="res://escenas/microondas.gd" id="47_yotwc"]
+[ext_resource type="Script" path="res://codes/notas.gd" id="46_r4bcw"]
+[ext_resource type="Script" path="res://codes/objetivos.gd" id="47_atv5i"]
+[ext_resource type="Script" path="res://codes/microondas.gd" id="47_yotwc"]
 
 [sub_resource type="Gradient" id="Gradient_6ykiw"]
 
@@ -37,16 +37,21 @@ sky_material = SubResource("ProceduralSkyMaterial_qrlt4")
 [sub_resource type="Environment" id="Environment_x37oi"]
 background_mode = 2
 sky = SubResource("Sky_rck73")
+ambient_light_color = Color(0.205117, 0.205117, 0.205117, 1)
 ambient_light_sky_contribution = 0.3
-ambient_light_energy = 2.0
+ambient_light_energy = 0.2
 tonemap_mode = 2
 ssil_radius = 16.0
 ssil_intensity = 16.0
 ssil_sharpness = 1.0
 fog_density = 0.0626
 fog_aerial_perspective = 0.2
-volumetric_fog_albedo = Color(0.601587, 0.0661136, 0.123895, 1)
-volumetric_fog_emission = Color(0.437286, 0.134309, 0.105772, 1)
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.8
+volumetric_fog_albedo = Color(0.329158, 0.329158, 0.329158, 1)
+volumetric_fog_emission = Color(0.298039, 0.321569, 0.368627, 1)
+volumetric_fog_emission_energy = 0.3
+volumetric_fog_sky_affect = 0.501
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_08l2f"]
 size = Vector3(50, 1, 50)
@@ -356,6 +361,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00524092, 0, -0.0119982)
 size = Vector3(0.0603027, 0.01, 0.123596)
 
 [node name="RigidBody3D" type="RigidBody3D" parent="." groups=["agarrables"]]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.71145, 0.960311, 2.49397)
 collision_layer = 2
 collision_mask = 6
