@@ -1,0 +1,230 @@
+:root {
+    --primary-bg: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+    --text-light: #ffffff;
+    --text-dark: #333;
+    --nav-bg: #111;
+    --nav-text: #818181;
+    --nav-text-hover: #f1f1f1;
+    --spacing-sm: 0.625rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 2rem;
+    --transition-speed: 0.3s;
+    --border-radius-sm: 0.625rem;
+    --border-radius-md: 0.9375rem;
+    --border-radius-lg: 1.5625rem;
+}
+
+/* Base styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    background: var(--primary-bg);
+    color: var(--text-dark);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Typography classes */
+.title-primary {
+    color: var(--text-light);
+    margin-bottom: var(--spacing-lg);
+    text-align: center;
+}
+
+.text-content {
+    color: var(--text-light);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: var(--spacing-md);
+}
+
+/* Navigation */
+.menu-container {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 2;
+    width: 100px;
+}
+
+/* Nuevo: Agregado borde redondeado al logo */
+.logo-img {
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: var(--border-radius-sm);
+}
+
+.sidenav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    background-color: var(--nav-bg);
+    overflow-x: hidden;
+    transition: width var(--transition-speed);
+    z-index: 3;
+}
+
+.menu-container:hover+.sidenav,
+.sidenav:hover {
+    width: 250px;
+}
+
+.menu-item {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: var(--nav-text);
+    display: block;
+    transition: color var(--transition-speed);
+}
+
+.menu-item:hover {
+    color: var(--nav-text-hover);
+}
+
+/* Main content */
+.main-content {
+    padding-top: calc(120px + var(--spacing-lg));
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: var(--spacing-lg);
+    padding-right: var(--spacing-lg);
+}
+
+/* Image classes */
+.figure-container {
+    margin: 0;
+    padding: 0;
+}
+
+/* Nuevo: Agregado borde redondeado a la imagen hero */
+.img-hero {
+    max-width: 80%;
+    height: auto;
+    margin: var(--spacing-lg) auto;
+    display: block;
+    border-radius: var(--border-radius-md);
+}
+
+.grid-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 300px);
+    gap: var(--spacing-lg);
+    justify-content: center;
+    margin: var(--spacing-lg) auto;
+}
+
+.gallery-link {
+    text-align: center;
+    color: var(--text-light);
+    text-decoration: none;
+}
+
+/* Actualizado: Manteniendo la consistencia en los bordes redondeados */
+.img-gallery {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: var(--border-radius-md);
+    transition: transform var(--transition-speed),
+        border-radius var(--transition-speed);
+}
+
+.img-gallery:hover {
+    transform: scale(1.1);
+    border-radius: var(--border-radius-lg);
+}
+
+/* Nuevo: Selector global para asegurar que todas las imágenes tengan bordes redondeados */
+img:not(.img-gallery):not(.img-hero):not(.logo-img) {
+    border-radius: var(--border-radius-sm);
+}
+
+.caption-gallery {
+    margin-top: var(--spacing-sm);
+    font-size: 0.875rem;
+    color: var(--text-light);
+}
+
+/* Footer */
+.footer {
+    margin-top: auto;
+    background-color: var(--nav-bg);
+    padding: var(--spacing-sm) 0;
+}
+
+.footer-text {
+    font-size: 0.75rem;
+    color: #ccc;
+    text-align: center;
+    margin: 0;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .main-content {
+        padding-top: calc(120px + var(--spacing-md));
+        padding-left: var(--spacing-md);
+        padding-right: var(--spacing-md);
+    }
+
+    .grid-gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .img-gallery {
+        width: 100%;
+        height: auto;
+    }
+
+    .img-hero {
+        max-width: 95%;
+    }
+
+    .menu-item {
+        font-size: 1.25rem;
+    }
+}
+/* Estilos específicos para los botones al final de la página */
+.footer-buttons {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+    margin: var(--spacing-lg) 0;
+}
+
+.footer-buttons button {
+    background-color: var(--nav-bg);
+    color: var(--text-light);
+    border: none;
+    padding: 12px 24px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    transition: background-color var(--transition-speed), transform var(--transition-speed);
+}
+
+.footer-buttons button:hover {
+    background-color: #444;
+    transform: scale(1.05);
+}
+
+.footer-buttons a {
+    color: var(--text-light);
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+/* Si quieres evitar que los enlaces hereden el color en otros lugares */
+.footer-buttons a:hover {
+    color: var(--nav-text-hover);
+}

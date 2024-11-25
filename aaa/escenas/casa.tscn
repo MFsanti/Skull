@@ -1,4 +1,4 @@
-[gd_scene load_steps=291 format=4 uid="uid://is5ausry8xpt"]
+[gd_scene load_steps=314 format=4 uid="uid://is5ausry8xpt"]
 
 [ext_resource type="Script" path="res://codes/puerta.gd" id="1_milm6"]
 [ext_resource type="Texture2D" uid="uid://h3tib48n8kdi" path="res://Blender/puerta/Room-Door/textures/Door_C.jpg" id="2_sxjhp"]
@@ -888,6 +888,17 @@ size = Vector3(0.688805, 0.976863, 0.779141)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2qdi3"]
 size = Vector3(1.16577, 0.146698, 2.03272)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lyu2v"]
+albedo_color = Color(0, 0, 0, 1)
+albedo_texture = ExtResource("52_6gheu")
+metallic = 1.0
+metallic_texture = ExtResource("53_cw4qc")
+roughness_texture = ExtResource("55_cgf5o")
+normal_enabled = true
+normal_texture = ExtResource("54_8sggo")
+uv1_triplanar = true
+uv1_world_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cldcj"]
 albedo_texture = ExtResource("11_vgx06")
@@ -2379,6 +2390,17 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_48avu")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uxquh"]
+albedo_color = Color(0, 0, 0, 1)
+albedo_texture = ExtResource("52_6gheu")
+metallic = 1.0
+metallic_texture = ExtResource("53_cw4qc")
+roughness_texture = ExtResource("55_cgf5o")
+normal_enabled = true
+normal_texture = ExtResource("54_8sggo")
+uv1_triplanar = true
+uv1_world_triplanar = true
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vc287"]
 resource_name = "Material.001"
 vertex_color_use_as_albedo = true
@@ -2451,6 +2473,17 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_1bpsf")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hmcph"]
+albedo_color = Color(0, 0, 0, 1)
+albedo_texture = ExtResource("52_6gheu")
+metallic = 1.0
+metallic_texture = ExtResource("53_cw4qc")
+roughness_texture = ExtResource("55_cgf5o")
+normal_enabled = true
+normal_texture = ExtResource("54_8sggo")
+uv1_triplanar = true
+uv1_world_triplanar = true
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iqwhk"]
 resource_name = "Material #39"
 vertex_color_use_as_albedo = true
@@ -2521,6 +2554,149 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_moiop")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gh7bs"]
+albedo_color = Color(0, 0, 0, 1)
+albedo_texture = ExtResource("52_6gheu")
+metallic = 1.0
+metallic_texture = ExtResource("53_cw4qc")
+roughness_texture = ExtResource("55_cgf5o")
+normal_enabled = true
+normal_texture = ExtResource("54_8sggo")
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n0gge"]
+albedo_color = Color(0, 0, 0, 1)
+albedo_texture = ExtResource("52_6gheu")
+metallic = 1.0
+metallic_texture = ExtResource("53_cw4qc")
+roughness_texture = ExtResource("55_cgf5o")
+normal_enabled = true
+normal_texture = ExtResource("54_8sggo")
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nc46g"]
+albedo_color = Color(0, 0, 0, 1)
+albedo_texture = ExtResource("52_6gheu")
+metallic = 1.0
+metallic_texture = ExtResource("53_cw4qc")
+roughness_texture = ExtResource("55_cgf5o")
+normal_enabled = true
+normal_texture = ExtResource("54_8sggo")
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_quj4t"]
+albedo_color = Color(0, 0, 0, 1)
+albedo_texture = ExtResource("52_6gheu")
+metallic = 1.0
+metallic_texture = ExtResource("53_cw4qc")
+roughness_texture = ExtResource("55_cgf5o")
+normal_enabled = true
+normal_texture = ExtResource("54_8sggo")
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r1q05"]
+albedo_color = Color(0, 0, 0, 1)
+albedo_texture = ExtResource("52_6gheu")
+metallic = 1.0
+metallic_texture = ExtResource("53_cw4qc")
+roughness_texture = ExtResource("55_cgf5o")
+normal_enabled = true
+normal_texture = ExtResource("54_8sggo")
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ed36b"]
+albedo_color = Color(0, 0, 0, 1)
+albedo_texture = ExtResource("52_6gheu")
+metallic = 1.0
+metallic_texture = ExtResource("53_cw4qc")
+roughness_texture = ExtResource("55_cgf5o")
+normal_enabled = true
+normal_texture = ExtResource("54_8sggo")
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ee3xq"]
+albedo_color = Color(0, 0, 0, 1)
+albedo_texture = ExtResource("52_6gheu")
+metallic = 1.0
+metallic_texture = ExtResource("53_cw4qc")
+roughness_texture = ExtResource("55_cgf5o")
+normal_enabled = true
+normal_texture = ExtResource("54_8sggo")
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jqb74"]
+albedo_color = Color(0, 0, 0, 1)
+albedo_texture = ExtResource("52_6gheu")
+metallic = 1.0
+metallic_texture = ExtResource("53_cw4qc")
+roughness_texture = ExtResource("55_cgf5o")
+normal_enabled = true
+normal_texture = ExtResource("54_8sggo")
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r31s1"]
+albedo_color = Color(0, 0, 0, 1)
+albedo_texture = ExtResource("52_6gheu")
+metallic = 1.0
+metallic_texture = ExtResource("53_cw4qc")
+roughness_texture = ExtResource("55_cgf5o")
+normal_enabled = true
+normal_texture = ExtResource("54_8sggo")
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q3r4d"]
+albedo_color = Color(0, 0, 0, 1)
+albedo_texture = ExtResource("52_6gheu")
+metallic = 1.0
+metallic_texture = ExtResource("53_cw4qc")
+roughness_texture = ExtResource("55_cgf5o")
+normal_enabled = true
+normal_texture = ExtResource("54_8sggo")
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r4qjy"]
+albedo_color = Color(0, 0, 0, 1)
+albedo_texture = ExtResource("52_6gheu")
+metallic = 1.0
+metallic_texture = ExtResource("53_cw4qc")
+roughness_texture = ExtResource("55_cgf5o")
+normal_enabled = true
+normal_texture = ExtResource("54_8sggo")
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ousim"]
+albedo_color = Color(0, 0, 0, 1)
+albedo_texture = ExtResource("52_6gheu")
+metallic = 1.0
+metallic_texture = ExtResource("53_cw4qc")
+roughness_texture = ExtResource("55_cgf5o")
+normal_enabled = true
+normal_texture = ExtResource("54_8sggo")
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n4n2c"]
+albedo_color = Color(0, 0, 0, 1)
+albedo_texture = ExtResource("52_6gheu")
+metallic = 1.0
+metallic_texture = ExtResource("53_cw4qc")
+roughness_texture = ExtResource("55_cgf5o")
+normal_enabled = true
+normal_texture = ExtResource("54_8sggo")
+uv1_triplanar = true
+uv1_world_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s41rx"]
 resource_name = "Switch"
@@ -2741,6 +2917,29 @@ metallic_texture = ExtResource("53_cw4qc")
 roughness_texture = ExtResource("55_cgf5o")
 normal_enabled = true
 normal_texture = ExtResource("54_8sggo")
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fvbgg"]
+load_path = "res://.godot/imported/Metal049A_2K-JPG_Color.jpg-b4e2be10735701cc3eb6a6ffaa8a9746.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_l57rw"]
+load_path = "res://.godot/imported/Metal049A_2K-JPG_Metalness.jpg-4990d0f46c81e00d21bcf2d63b441031.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_awy5p"]
+load_path = "res://.godot/imported/Metal049A_2K-JPG_NormalDX.jpg-34cf4e673438586517dfd959986c6939.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_oy5kl"]
+load_path = "res://.godot/imported/Metal049A_2K-JPG_Roughness.jpg-85acc898998ccdba8d35282c9f645be8.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pw5to"]
+albedo_color = Color(0, 0, 0, 1)
+albedo_texture = SubResource("CompressedTexture2D_fvbgg")
+metallic = 1.0
+metallic_texture = SubResource("CompressedTexture2D_l57rw")
+roughness_texture = SubResource("CompressedTexture2D_oy5kl")
+normal_enabled = true
+normal_texture = SubResource("CompressedTexture2D_awy5p")
 uv1_triplanar = true
 uv1_world_triplanar = true
 
@@ -3055,6 +3254,28 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_cqiy3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8ef1f"]
+albedo_color = Color(0.408329, 0.408329, 0.408329, 1)
+albedo_texture = ExtResource("52_6gheu")
+metallic = 1.0
+metallic_texture = ExtResource("53_cw4qc")
+roughness_texture = ExtResource("55_cgf5o")
+normal_enabled = true
+normal_texture = ExtResource("54_8sggo")
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dfrad"]
+albedo_color = Color(0.262745, 0.278431, 0.301961, 1)
+albedo_texture = ExtResource("52_6gheu")
+metallic = 1.0
+metallic_texture = ExtResource("53_cw4qc")
+roughness_texture = ExtResource("55_cgf5o")
+normal_enabled = true
+normal_texture = ExtResource("54_8sggo")
+uv1_triplanar = true
+uv1_world_triplanar = true
 
 [node name="casa" type="Node3D"]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 1.234, 0.507, 5.115)
@@ -3884,49 +4105,49 @@ shape = SubResource("BoxShape3D_2qdi3")
 transform = Transform3D(0.01, 0, 0, 0, -4.37114e-10, 0.01, 0, -0.01, -4.37114e-10, -3.09043, 0.470329, -8.90226)
 mesh = ExtResource("9_fmooj")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("35_jy8q1")
-surface_material_override/1 = ExtResource("35_jy8q1")
-surface_material_override/2 = ExtResource("35_jy8q1")
+surface_material_override/0 = SubResource("StandardMaterial3D_lyu2v")
+surface_material_override/1 = SubResource("StandardMaterial3D_lyu2v")
+surface_material_override/2 = SubResource("StandardMaterial3D_lyu2v")
 surface_material_override/3 = SubResource("StandardMaterial3D_cldcj")
-surface_material_override/4 = ExtResource("35_jy8q1")
-surface_material_override/5 = ExtResource("35_jy8q1")
-surface_material_override/6 = ExtResource("35_jy8q1")
-surface_material_override/7 = ExtResource("35_jy8q1")
-surface_material_override/8 = ExtResource("35_jy8q1")
-surface_material_override/9 = ExtResource("35_jy8q1")
-surface_material_override/10 = ExtResource("35_jy8q1")
+surface_material_override/4 = SubResource("StandardMaterial3D_lyu2v")
+surface_material_override/5 = SubResource("StandardMaterial3D_lyu2v")
+surface_material_override/6 = SubResource("StandardMaterial3D_lyu2v")
+surface_material_override/7 = SubResource("StandardMaterial3D_lyu2v")
+surface_material_override/8 = SubResource("StandardMaterial3D_lyu2v")
+surface_material_override/9 = SubResource("StandardMaterial3D_lyu2v")
+surface_material_override/10 = SubResource("StandardMaterial3D_lyu2v")
 
 [node name="silla2" type="MeshInstance3D" parent="Muebles/sillas"]
 transform = Transform3D(-4.37114e-10, -0.01, 0, -4.37114e-10, 1.91068e-17, 0.01, -0.01, 4.37114e-10, -4.37114e-10, -3.66641, 0.470329, -8.12423)
 mesh = ExtResource("9_fmooj")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("35_jy8q1")
-surface_material_override/1 = ExtResource("35_jy8q1")
-surface_material_override/2 = ExtResource("35_jy8q1")
+surface_material_override/0 = SubResource("StandardMaterial3D_lyu2v")
+surface_material_override/1 = SubResource("StandardMaterial3D_lyu2v")
+surface_material_override/2 = SubResource("StandardMaterial3D_lyu2v")
 surface_material_override/3 = SubResource("StandardMaterial3D_cldcj")
-surface_material_override/4 = ExtResource("35_jy8q1")
-surface_material_override/5 = ExtResource("35_jy8q1")
-surface_material_override/6 = ExtResource("35_jy8q1")
-surface_material_override/7 = ExtResource("35_jy8q1")
-surface_material_override/8 = ExtResource("35_jy8q1")
-surface_material_override/9 = ExtResource("35_jy8q1")
-surface_material_override/10 = ExtResource("35_jy8q1")
+surface_material_override/4 = SubResource("StandardMaterial3D_lyu2v")
+surface_material_override/5 = SubResource("StandardMaterial3D_lyu2v")
+surface_material_override/6 = SubResource("StandardMaterial3D_lyu2v")
+surface_material_override/7 = SubResource("StandardMaterial3D_lyu2v")
+surface_material_override/8 = SubResource("StandardMaterial3D_lyu2v")
+surface_material_override/9 = SubResource("StandardMaterial3D_lyu2v")
+surface_material_override/10 = SubResource("StandardMaterial3D_lyu2v")
 
 [node name="silla3" type="MeshInstance3D" parent="Muebles/sillas"]
 transform = Transform3D(-4.37114e-10, 0.01, 4.37114e-10, 0, -4.37114e-10, 0.01, 0.01, 4.37114e-10, 1.91068e-17, -2.73209, 0.470329, -8.30668)
 mesh = ExtResource("9_fmooj")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("35_jy8q1")
-surface_material_override/1 = ExtResource("35_jy8q1")
-surface_material_override/2 = ExtResource("35_jy8q1")
+surface_material_override/0 = SubResource("StandardMaterial3D_lyu2v")
+surface_material_override/1 = SubResource("StandardMaterial3D_lyu2v")
+surface_material_override/2 = SubResource("StandardMaterial3D_lyu2v")
 surface_material_override/3 = SubResource("StandardMaterial3D_cldcj")
-surface_material_override/4 = ExtResource("35_jy8q1")
-surface_material_override/5 = ExtResource("35_jy8q1")
-surface_material_override/6 = ExtResource("35_jy8q1")
-surface_material_override/7 = ExtResource("35_jy8q1")
-surface_material_override/8 = ExtResource("35_jy8q1")
-surface_material_override/9 = ExtResource("35_jy8q1")
-surface_material_override/10 = ExtResource("35_jy8q1")
+surface_material_override/4 = SubResource("StandardMaterial3D_lyu2v")
+surface_material_override/5 = SubResource("StandardMaterial3D_lyu2v")
+surface_material_override/6 = SubResource("StandardMaterial3D_lyu2v")
+surface_material_override/7 = SubResource("StandardMaterial3D_lyu2v")
+surface_material_override/8 = SubResource("StandardMaterial3D_lyu2v")
+surface_material_override/9 = SubResource("StandardMaterial3D_lyu2v")
+surface_material_override/10 = SubResource("StandardMaterial3D_lyu2v")
 
 [node name="colisiones" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3077, -0.0297811, 0.020443)
@@ -4411,7 +4632,7 @@ transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 0, -0.196407, 0)
 transform = Transform3D(13.9004, 0, 0, 0, -1.65706e-06, 13.9004, 0, -13.9004, -1.65706e-06, 0, 5.40014, 0)
 mesh = SubResource("ArrayMesh_y2562")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("35_jy8q1")
+surface_material_override/0 = SubResource("StandardMaterial3D_uxquh")
 
 [node name="Cylinder_001" type="MeshInstance3D" parent="Iluminacion/Hall/Lampara_1"]
 transform = Transform3D(13.9004, 0, 0, 0, -1.65706e-06, 13.9004, 0, -13.9004, -1.65706e-06, 0, 5.40014, 0)
@@ -4438,7 +4659,7 @@ transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 0, -0.213453, 0)
 transform = Transform3D(13.9004, 0, 0, 0, -1.65706e-06, 13.9004, 0, -13.9004, -1.65706e-06, 0, 5.40014, 0)
 mesh = SubResource("ArrayMesh_y2562")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("35_jy8q1")
+surface_material_override/0 = SubResource("StandardMaterial3D_hmcph")
 
 [node name="Cylinder_001" type="MeshInstance3D" parent="Iluminacion/Hall_2/Lampara_2"]
 transform = Transform3D(13.9004, 0, 0, 0, -1.65706e-06, 13.9004, 0, -13.9004, -1.65706e-06, 0, 5.40014, 0)
@@ -4466,7 +4687,7 @@ transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -0.114838, -0.135654, 0
 transform = Transform3D(0.3, 0, 0, 0, -1.31134e-08, -0.3, 0, 0.3, -1.31134e-08, 0.106258, 0.286517, 0)
 mesh = SubResource("ArrayMesh_oy4i3")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("35_jy8q1")
+surface_material_override/0 = SubResource("StandardMaterial3D_gh7bs")
 surface_material_override/1 = ExtResource("36_0isce")
 
 [node name="Comedor_2" type="OmniLight3D" parent="Iluminacion"]
@@ -4484,7 +4705,7 @@ transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -0.114838, -0.13756, 0)
 transform = Transform3D(0.3, 0, 0, 0, -1.31134e-08, -0.3, 0, 0.3, -1.31134e-08, 0.106258, 0.286517, 0)
 mesh = SubResource("ArrayMesh_oy4i3")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("35_jy8q1")
+surface_material_override/0 = SubResource("StandardMaterial3D_n0gge")
 surface_material_override/1 = ExtResource("36_0isce")
 
 [node name="Comedor_3" type="OmniLight3D" parent="Iluminacion"]
@@ -4501,7 +4722,7 @@ transform = Transform3D(0.7, 0, 0, 0, -3.0598e-08, 0.7, 0, -0.7, -3.0598e-08, -0
 transform = Transform3D(1.31134e-08, 0.3, 4.52987e-08, 0.3, -1.31134e-08, 0, 2.66454e-15, 4.52987e-08, -0.3, 0.22027, 0.0421934, 0.615049)
 mesh = SubResource("ArrayMesh_oy4i3")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("35_jy8q1")
+surface_material_override/0 = SubResource("StandardMaterial3D_nc46g")
 surface_material_override/1 = ExtResource("36_0isce")
 
 [node name="Patio" type="OmniLight3D" parent="Iluminacion"]
@@ -4519,7 +4740,7 @@ transform = Transform3D(0.7, 0, 0, 0, -3.0598e-08, 0.7, 0, -0.7, -3.0598e-08, -0
 transform = Transform3D(-2.26494e-08, -2.62268e-08, -0.3, -2.62268e-08, -0.3, 2.62268e-08, -0.3, 2.62268e-08, 2.26494e-08, 0.569462, -0.0258272, 0.197982)
 mesh = SubResource("ArrayMesh_oy4i3")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("35_jy8q1")
+surface_material_override/0 = SubResource("StandardMaterial3D_lyu2v")
 surface_material_override/1 = ExtResource("36_0isce")
 
 [node name="Patio2" type="OmniLight3D" parent="Iluminacion"]
@@ -4536,7 +4757,7 @@ transform = Transform3D(0.7, 0, 0, 0, -3.0598e-08, 0.7, 0, -0.7, -3.0598e-08, -0
 transform = Transform3D(-8.74228e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.74228e-09, -0.57772, 0.143753, 0.316204)
 mesh = SubResource("ArrayMesh_oy4i3")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("35_jy8q1")
+surface_material_override/0 = SubResource("StandardMaterial3D_quj4t")
 surface_material_override/1 = ExtResource("36_0isce")
 
 [node name="Lavadero" type="OmniLight3D" parent="Iluminacion"]
@@ -4554,7 +4775,7 @@ transform = Transform3D(0.7, 0, 0, 0, -3.0598e-08, 0.7, 0, -0.7, -3.0598e-08, -0
 transform = Transform3D(8.74228e-09, 0.2, 1.74846e-08, 0.2, -8.74228e-09, 0, 8.88178e-16, 1.74846e-08, -0.2, 0.155847, 0.121306, 0.622764)
 mesh = SubResource("ArrayMesh_oy4i3")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("35_jy8q1")
+surface_material_override/0 = SubResource("StandardMaterial3D_r1q05")
 surface_material_override/1 = ExtResource("36_0isce")
 
 [node name="Baño" type="OmniLight3D" parent="Iluminacion"]
@@ -4571,7 +4792,7 @@ transform = Transform3D(0.7, 0, 0, 0, -3.0598e-08, 0.7, 0, -0.7, -3.0598e-08, 0.
 transform = Transform3D(-0.3, 0, -4.52987e-08, 0, 0.3, 0, 4.52987e-08, 0, -0.3, -0.0832684, 0.0160427, 0.0643824)
 mesh = SubResource("ArrayMesh_oy4i3")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("35_jy8q1")
+surface_material_override/0 = SubResource("StandardMaterial3D_ed36b")
 surface_material_override/1 = ExtResource("36_0isce")
 
 [node name="Pasillo Hall" type="OmniLight3D" parent="Iluminacion"]
@@ -4587,7 +4808,7 @@ transform = Transform3D(0.7, 0, 0, 0, -3.0598e-08, 0.7, 0, -0.7, -3.0598e-08, -0
 transform = Transform3D(-8.74228e-09, 0.2, -8.74228e-09, 0, -8.74228e-09, -0.2, -0.2, -8.74228e-09, 0, 0.22027, 0.324724, 0.692403)
 mesh = SubResource("ArrayMesh_oy4i3")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("35_jy8q1")
+surface_material_override/0 = SubResource("StandardMaterial3D_ee3xq")
 surface_material_override/1 = ExtResource("36_0isce")
 
 [node name="Escaleras" type="OmniLight3D" parent="Iluminacion"]
@@ -4603,7 +4824,7 @@ transform = Transform3D(0.7, 0, 0, 0, -3.0598e-08, 0.7, 0, -0.7, -3.0598e-08, -0
 transform = Transform3D(-8.74228e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.74228e-09, -0.369878, 0.0160427, 0.336735)
 mesh = SubResource("ArrayMesh_oy4i3")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("35_jy8q1")
+surface_material_override/0 = SubResource("StandardMaterial3D_jqb74")
 surface_material_override/1 = ExtResource("36_0isce")
 
 [node name="Pasillo_Habitaciones" type="OmniLight3D" parent="Iluminacion"]
@@ -4619,7 +4840,7 @@ transform = Transform3D(0.09, 0, 0, 0, 0.09, 0, 0, 0, 0.09, 0, 0.243116, -0.0727
 transform = Transform3D(13.9004, 0, 0, 0, -1.65706e-06, 13.9004, 0, -13.9004, -1.65706e-06, 0, 5.40014, 0)
 mesh = SubResource("ArrayMesh_y2562")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("35_jy8q1")
+surface_material_override/0 = SubResource("StandardMaterial3D_r31s1")
 
 [node name="Cylinder_001" type="MeshInstance3D" parent="Iluminacion/Pasillo_Habitaciones/Lampara_1"]
 transform = Transform3D(13.9004, 0, 0, 0, -1.65706e-06, 13.9004, 0, -13.9004, -1.65706e-06, 0, 5.40014, 0)
@@ -4646,7 +4867,7 @@ transform = Transform3D(0.09, 0, 0, 0, 0.09, 0, 0, 0, 0.09, 0, 0.310724, 0)
 transform = Transform3D(13.9004, 0, 0, 0, -1.65706e-06, 13.9004, 0, -13.9004, -1.65706e-06, 0, 5.40014, 0)
 mesh = SubResource("ArrayMesh_y2562")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("35_jy8q1")
+surface_material_override/0 = SubResource("StandardMaterial3D_q3r4d")
 
 [node name="Cylinder_001" type="MeshInstance3D" parent="Iluminacion/Habitacion_1/Lampara_1"]
 transform = Transform3D(13.9004, 0, 0, 0, -1.65706e-06, 13.9004, 0, -13.9004, -1.65706e-06, 0, 5.40014, 0)
@@ -4673,7 +4894,7 @@ transform = Transform3D(0.09, 0, 0, 0, 0.09, 0, 0, 0, 0.09, 0, 0.243116, 0)
 transform = Transform3D(13.9004, 0, 0, 0, -1.65706e-06, 13.9004, 0, -13.9004, -1.65706e-06, 0, 5.40014, 0)
 mesh = SubResource("ArrayMesh_y2562")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("35_jy8q1")
+surface_material_override/0 = SubResource("StandardMaterial3D_r4qjy")
 
 [node name="Cylinder_001" type="MeshInstance3D" parent="Iluminacion/Habitacion_3/Lampara_1"]
 transform = Transform3D(13.9004, 0, 0, 0, -1.65706e-06, 13.9004, 0, -13.9004, -1.65706e-06, 0, 5.40014, 0)
@@ -4700,7 +4921,7 @@ transform = Transform3D(0.09, 0, 0, 0, 0.09, 0, 0, 0, 0.09, 0, 0.243116, 0)
 transform = Transform3D(13.9004, 0, 0, 0, -1.65706e-06, 13.9004, 0, -13.9004, -1.65706e-06, 0, 5.40014, 0)
 mesh = SubResource("ArrayMesh_y2562")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("35_jy8q1")
+surface_material_override/0 = SubResource("StandardMaterial3D_ousim")
 
 [node name="Cylinder_001" type="MeshInstance3D" parent="Iluminacion/Habitacion_2/Lampara_1"]
 transform = Transform3D(13.9004, 0, 0, 0, -1.65706e-06, 13.9004, 0, -13.9004, -1.65706e-06, 0, 5.40014, 0)
@@ -4728,7 +4949,7 @@ transform = Transform3D(9.55343e-16, 2.18557e-08, -0.5, 0.5, -2.18557e-08, 0, -2
 transform = Transform3D(0.3, 0, 0, 0, -1.31134e-08, -0.3, 0, 0.3, -1.31134e-08, 0.106258, 0.286517, 0)
 mesh = SubResource("ArrayMesh_oy4i3")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("35_jy8q1")
+surface_material_override/0 = SubResource("StandardMaterial3D_n4n2c")
 surface_material_override/1 = ExtResource("36_0isce")
 
 [node name="Switch" type="Node3D" parent="."]
@@ -5024,7 +5245,7 @@ mesh = SubResource("ArrayMesh_ffwjl")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_t0yrs")
 surface_material_override/1 = ExtResource("56_0igl1")
-surface_material_override/2 = ExtResource("35_jy8q1")
+surface_material_override/2 = SubResource("StandardMaterial3D_pw5to")
 surface_material_override/3 = SubResource("StandardMaterial3D_3xju6")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Kitchen/oven"]
@@ -5040,13 +5261,14 @@ mesh = SubResource("ArrayMesh_ery6p")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("5_0ooqv")
 surface_material_override/1 = ExtResource("5_0ooqv")
-surface_material_override/2 = ExtResource("56_0igl1")
+surface_material_override/2 = SubResource("StandardMaterial3D_lyu2v")
 surface_material_override/3 = ExtResource("57_0d102")
 
 [node name="water tap" type="MeshInstance3D" parent="Kitchen/kitchen"]
 transform = Transform3D(100, 0, -4.54747e-13, 0, 100, 0, 4.54747e-13, 0, 100, -1.35659, 0.148724, 0.0377502)
 mesh = SubResource("ArrayMesh_pjqhy")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("56_0igl1")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Kitchen/kitchen"]
 collision_layer = 7
@@ -5079,6 +5301,9 @@ transform = Transform3D(-0.5, 0, -4.37114e-08, 0, 0.5, 0, 4.37114e-08, 0, -0.5, 
 layers = 7
 mesh = SubResource("ArrayMesh_1i1fp")
 skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_8ef1f")
+surface_material_override/1 = ExtResource("5_0ooqv")
+surface_material_override/2 = SubResource("StandardMaterial3D_dfrad")
 
 [connection signal="animation_finished" from="puertas/Puerta Hall/StaticBody3D/AnimationPlayer" to="puertas/Puerta Hall/StaticBody3D" method="_on_animation_player_animation_finished"]
 [connection signal="animation_finished" from="puertas/Puerta Lavadero/StaticBody3D/AnimationPlayer" to="puertas/Puerta Lavadero/StaticBody3D" method="_on_animation_player_animation_finished"]

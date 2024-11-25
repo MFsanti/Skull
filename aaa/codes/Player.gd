@@ -11,6 +11,8 @@ const SENSITIVITY = 0.003
 @onready var point = %point
 @onready var linterna = $Head/Camera3D/SpotLight3D
 
+
+
 var dragged_item = null
 var cursor_offset = Vector3(0, 1, 0)
 var agarrado: RigidBody3D
