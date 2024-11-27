@@ -1,0 +1,62 @@
+[gd_scene load_steps=10 format=3 uid="uid://n882exm432sm"]
+
+[ext_resource type="Script" path="res://codes/Player.gd" id="1_e8d17"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_qo6ms"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_b2b41"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/camera_3d_resource.gd" id="4_qaoiw"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="5_iqgq8"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_yesjh"]
+height = 1.7
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_xgs7s"]
+points = PackedVector3Array(-0.000846426, -0.459731, -0.486203, 0.0501841, 0.458912, 0.48375, -0.0517622, 0.458736, 0.483565, 0.0247481, 0.718751, -0.334416, 0.483735, -0.458985, 0.0501542, -0.45595, -0.48031, 0.150952, -0.460669, 0.459841, -0.154017, 0.0504608, -0.717723, 0.332447, 0.455108, 0.481166, -0.152665, -0.230789, -0.690061, -0.281922, -0.0267178, 0.830344, 0.128953, 0.350411, 0.401367, 0.350397, 0.356329, -0.586788, -0.255886, -0.406612, 0.431026, 0.2782, 0.0501842, -0.458913, 0.483752, 0.0757349, 0.434095, -0.486165, -0.35193, -0.37624, -0.352001, -0.277282, -0.452454, 0.401457, -0.228286, 0.455087, -0.43069, -0.104577, -0.830793, 0.0770576, 0.356801, -0.587565, 0.254636, 0.256216, 0.770815, 0.0762647, 0.376628, -0.352118, -0.327846, -0.283817, 0.746227, -0.103613, 0.15358, -0.797748, -0.155138, -0.460752, -0.510991, -0.102898, 0.482144, 0.432, 0.100862, 0.301986, 0.529893, -0.354064, 0.375812, -0.376521, 0.325551, -0.30621, 0.687087, 0.202799, -0.486141, 0.434231, 0.075818, 0.050401, 0.665712, 0.383309)
+
+[sub_resource type="Resource" id="Resource_fjfh6"]
+script = ExtResource("3_b2b41")
+duration = 1.0
+transition = 0
+ease = 2
+
+[sub_resource type="Resource" id="Resource_c6amc"]
+script = ExtResource("4_qaoiw")
+cull_mask = 1048575
+h_offset = 0.0
+v_offset = 0.0
+projection = 0
+fov = 75.0
+size = 1.0
+frustum_offset = Vector2(0, 0)
+near = 0.05
+far = 4000.0
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+script = ExtResource("1_e8d17")
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_yesjh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_xgs7s")
+
+[node name="PhantomCamera3D" type="Node3D" parent="." node_paths=PackedStringArray("follow_target", "look_at_target")]
+transform = Transform3D(0.999942, 0, 0, 0, 0.83861, 0.544727, 0, -0.544727, 0.83861, 0, 3.7071, 5.7071)
+script = ExtResource("2_qo6ms")
+priority = 10
+follow_target = NodePath("..")
+look_at_mode = 2
+look_at_target = NodePath("..")
+tween_resource = SubResource("Resource_fjfh6")
+camera_3d_resource = SubResource("Resource_c6amc")
+follow_offset = Vector3(0, 3, 5)
+follow_damping = true
+look_at_damping = true
+
+[node name="main_camera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.838612, 0.544729, 0, -0.544729, 0.838612, 0, 3.7071, 5.7071)
+
+[node name="PhantomCameraHost" type="Node" parent="main_camera"]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("5_iqgq8")

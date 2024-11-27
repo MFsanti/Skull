@@ -1,10 +1,10 @@
 extends CharacterBody3D
 
-@export var max_speed : float = 5
+@export var max_speed : float = .5
 
-@export var max_velocity : float = 1
+@export var max_velocity : float = .2
 
-@onready var player : Node3D = $Node3D
+@onready var player = $"../Node3D"
 func _ready() -> void:
 	pass 
 

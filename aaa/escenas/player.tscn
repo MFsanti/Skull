@@ -39,7 +39,6 @@ metadata/_edit_group_ = true
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.100339, 0)
-fov = 75.3
 metadata/_edit_group_ = true
 
 [node name="RayCast3D" type="RayCast3D" parent="Head/Camera3D"]

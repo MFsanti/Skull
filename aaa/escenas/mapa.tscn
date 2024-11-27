@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://cbc5f52ccsku1"]
+[gd_scene load_steps=42 format=4 uid="uid://cbc5f52ccsku1"]
 
 [ext_resource type="PackedScene" uid="uid://dw6ehqtw2bm5b" path="res://escenas/player.tscn" id="1_84tnd"]
 [ext_resource type="PackedScene" uid="uid://7k67fd1gmhju" path="res://escenas/ui_notas.tscn" id="2_f6wc0"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://csvlw81tacion" path="res://texturas/Grass001_1K-JPG/Grass001_1K-JPG_NormalDX.jpg" id="4_uicrx"]
 [ext_resource type="Texture2D" uid="uid://dikxdq8ib5syn" path="res://texturas/Grass001_1K-JPG/Grass001_1K-JPG_Roughness.jpg" id="5_aljxg"]
 [ext_resource type="PackedScene" uid="uid://is5ausry8xpt" path="res://escenas/casa.tscn" id="6_qxf58"]
+[ext_resource type="PackedScene" uid="uid://cpi0phx5skwgf" path="res://escenas/enemigo.tscn" id="11_vwh6s"]
+[ext_resource type="Shader" path="res://escenas/player.gdshader" id="12_et1p4"]
 [ext_resource type="Script" path="res://codes/notas.gd" id="46_r4bcw"]
 [ext_resource type="Script" path="res://codes/objetivos.gd" id="47_atv5i"]
 [ext_resource type="Script" path="res://codes/microondas.gd" id="47_yotwc"]
@@ -318,6 +320,23 @@ _data = {
 "open": SubResource("Animation_5mn48")
 }
 
+[sub_resource type="QuadMesh" id="QuadMesh_pnpor"]
+size = Vector2(2, 2)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7kxko"]
+shader = ExtResource("12_et1p4")
+shader_parameter/bits_per_channel = 4.0
+shader_parameter/dither_strength = 0.1
+shader_parameter/bloom_threshold = 0.5
+shader_parameter/bloom_intensity = 2.0
+shader_parameter/pixelation = 10.0
+shader_parameter/color_relaxation = 0.5
+shader_parameter/relaxation_color = Vector3(1, 1, 1)
+shader_parameter/threshold_r = 0.5
+shader_parameter/threshold_g = 0.5
+shader_parameter/threshold_b = 0.5
+shader_parameter/threshold_color = Vector3(1, 1, 1)
+
 [node name="mapa" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.244979, -1.49052, 0.857208)
 metadata/_edit_group_ = true
@@ -418,5 +437,15 @@ root_node = NodePath("../../..")
 libraries = {
 "": SubResource("AnimationLibrary_4mwfd")
 }
+
+[node name="Enemigo" parent="." instance=ExtResource("11_vwh6s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.06001, 8.28968)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0721264)
+transparency = 0.83
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_pnpor")
+surface_material_override/0 = SubResource("ShaderMaterial_7kxko")
 
 [connection signal="animation_finished" from="microondas/Area3D/StaticBody3D/AnimationPlayer" to="microondas/Area3D/StaticBody3D" method="_on_animation_player_animation_finished"]

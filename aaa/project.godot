@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 Global="*res://codes/global.gd"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/terrain_3d/plugin.cfg")
+
 [input]
 
 right={
