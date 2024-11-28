@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa Conceptual</title>
+    <style>
+        /* General */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f9fc;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .mapa-conceptual {
+            width: 90%;
+            max-width: 1200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+            position: relative;
+        }
+
+        /* Nodo */
+        .nodo {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 16px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 1;
+        }
+
+        .nodo.central {
+            background-color: #28a745;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        /* Líneas */
+        .linea {
+            position: absolute;
+            background-color: #555;
+        }
+
+        .linea.vertical {
+            width: 2px;
+            height: 40px;
+        }
+
+        .linea.horizontal {
+            height: 2px;
+            width: 80px;
+        }
+
+        /* Estructura jerárquica */
+        .nivel {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            position: relative;
+        }
+
+        .nivel .nodo {
+            margin-top: 20px;
+        }
+
+        /* Líneas entre niveles */
+        .nivel .con-linea .linea.vertical {
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .nivel .con-linea .linea.horizontal {
+            top: 50%;
+            left: 100%;
+            transform: translateY(-50%);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mapa-conceptual">
+        <!-- Nodo principal -->
+        <div class="nodo central">Lengua y Literatura</div>
+
+        <!-- Primera jerarquía -->
+        <div class="nivel">
+            <div class="nodo con-linea">
+                <div class="nodo">Monografía</div>
+                <div class="linea vertical"></div>
+            </div>
+            <div class="nodo con-linea">
+                <div class="nodo">Informe</div>
+                <div class="linea vertical"></div>
+            </div>
+            <div class="nodo con-linea">
+                <div class="nodo">Currículum</div>
+                <div class="linea vertical"></div>
+            </div>
+            <div class="nodo con-linea">
+                <div class="nodo">Carta de Presentación</div>
+                <div class="linea vertical"></div>
+            </div>
+            <div class="nodo">Recursos Poéticos</div>
+        </div>
+
+        <!-- Segunda jerarquía -->
+        <div class="nivel">
+            <div class="nodo con-linea">
+                <div class="nodo">Estructura Formal</div>
+                <div class="linea horizontal"></div>
+            </div>
+            <div class="nodo con-linea">
+                <div class="nodo">Creatividad</div>
+                <div class="linea horizontal"></div>
+            </div>
+            <div class="nodo">Estilo</div>
+        </div>
+    </div>
+</body>
+
+</html>

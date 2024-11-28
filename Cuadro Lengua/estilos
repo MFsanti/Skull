@@ -1,0 +1,79 @@
+/* General */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f9fc;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.mapa {
+    width: 80%;
+    position: relative;
+    text-align: center;
+}
+
+/* Nodo */
+.nodo {
+    position: relative;
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 15px;
+    font-size: 16px;
+    margin: 20px 10px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.nodo.central {
+    background-color: #28a745;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Líneas */
+.linea {
+    position: absolute;
+    width: 2px;
+    background-color: #555;
+}
+
+.linea.vertical {
+    height: 20px;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.linea.horizontal {
+    height: 2px;
+    width: 20px;
+    top: 50%;
+    left: 100%;
+    transform: translateY(-50%);
+}
+
+/* Organización de niveles */
+.nivel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.nodo.con-linea {
+    position: relative;
+}
+
+.nodo.con-linea .linea.vertical {
+    height: 40px;
+}
+
+.nodo:last-child .linea.vertical {
+    display: none;
+}

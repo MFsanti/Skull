@@ -32,7 +32,6 @@ far = 4000.0
 
 [node name="CharacterBody3D" type="CharacterBody3D"]
 script = ExtResource("1_e8d17")
-metadata/_edit_group_ = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_yesjh")
@@ -40,11 +39,10 @@ mesh = SubResource("CapsuleMesh_yesjh")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("ConvexPolygonShape3D_xgs7s")
 
-[node name="PhantomCamera3D" type="Node3D" parent="." node_paths=PackedStringArray("follow_target", "look_at_target")]
+[node name="PhantomCamera3D" type="Node3D" parent="." node_paths=PackedStringArray("look_at_target")]
 transform = Transform3D(0.999942, 0, 0, 0, 0.83861, 0.544727, 0, -0.544727, 0.83861, 0, 3.7071, 5.7071)
 script = ExtResource("2_qo6ms")
 priority = 10
-follow_target = NodePath("..")
 look_at_mode = 2
 look_at_target = NodePath("..")
 tween_resource = SubResource("Resource_fjfh6")
@@ -54,6 +52,7 @@ follow_damping = true
 look_at_damping = true
 
 [node name="main_camera" type="Camera3D" parent="."]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 0.838612, 0.544729, 0, -0.544729, 0.838612, 0, 3.7071, 5.7071)
 
 [node name="PhantomCameraHost" type="Node" parent="main_camera"]

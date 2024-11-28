@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://hqghnr4hu80d"]
+[gd_scene load_steps=8 format=3 uid="uid://hqghnr4hu80d"]
 
 [ext_resource type="PackedScene" uid="uid://n882exm432sm" path="res://scenes/character_body_3d.tscn" id="1_ixm4s"]
+[ext_resource type="PackedScene" uid="uid://dmbbnnmnvkhy" path="res://scenes/world_environment.tscn" id="2_h0aq1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_abay3"]
 albedo_color = Color(6.01634e-07, 0.49062, 0.177515, 1)
@@ -13,6 +14,13 @@ size = Vector3(1000, 1, 1000)
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_k8uwo"]
 points = PackedVector3Array(-50, -0.5, -50, -50, 0.5, -50, 50, -0.5, -50, -50, -0.5, 50, -50, 0.5, 50, 50, 0.5, -50, 50, -0.5, 50, 50, 0.5, 50)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_epny3"]
+albedo_color = Color(0.960784, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_40pci"]
+material = SubResource("StandardMaterial3D_epny3")
+size = Vector3(1, 2, 1)
+
 [node name="Node3D" type="MeshInstance3D"]
 mesh = SubResource("BoxMesh_6ro15")
 
@@ -23,3 +31,9 @@ shape = SubResource("ConvexPolygonShape3D_k8uwo")
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("1_ixm4s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.44286, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.045084, -0.998983, 0, 0.998983, -0.045084, 0, 1.50102, -2.485)
+mesh = SubResource("BoxMesh_40pci")
+
+[node name="WorldEnvironment" parent="." instance=ExtResource("2_h0aq1")]
